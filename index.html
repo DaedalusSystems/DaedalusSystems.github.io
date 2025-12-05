@@ -7,7 +7,7 @@
 
     <style>
         :root {
-            /* You can change your theme here later */
+            /* Theme variables – easy to tweak later */
             --primary: #0f5fff;
             --primary-dark: #0c49c0;
             --accent: #f59e0b;
@@ -104,353 +104,54 @@
             margin-bottom: 18px;
         }
 
-        .property-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: #cbd5f5;
-            background: rgba(15, 23, 42, 0.6);
-            border-radius: 999px;
-            padding: 5px 10px;
-            margin-bottom: 20px;
-        }
-
-        .property-tag span.icon {
-            font-size: 15px;
-        }
-
-        .info-block {
+        /* Property chooser block on the left */
+        .property-block {
             background: rgba(15, 23, 42, 0.8);
-            border-radius: 16px;
-            padding: 14px 16px;
-            border: 1px solid rgba(148, 163, 184, 0.6);
-            color: #e5e7eb;
-            font-size: 13px;
-            margin-bottom: 16px;
+            border-radius: 14px;
+            padding: 12px 14px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            margin-bottom: 18px;
         }
 
-        .info-title {
-            font-weight: 600;
-            margin-bottom: 6px;
-            font-size: 13px;
-        }
-
-        .info-list {
-            list-style: none;
-            margin-left: 0;
-        }
-
-        .info-list li {
+        .property-block-header {
             display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            margin-bottom: 4px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 8px;
         }
 
-        .info-list li span.bullet {
-            font-size: 12px;
-            margin-top: 2px;
-        }
-
-        .micro-copy {
-            font-size: 12px;
-            color: #cbd5e1;
-            margin-top: 6px;
-        }
-
-        .logo-text {
-            font-size: 13px;
-            color: #cbd5e1;
-            margin-top: 16px;
-        }
-
-        .logo-text span.mark {
-            font-weight: 600;
-            color: #e5e7eb;
-        }
-
-        /* Form card */
-        .form-card {
-            background: var(--card-bg);
-            border-radius: 18px;
-            padding: 22px 22px 18px;
-            box-shadow:
-                0 16px 30px rgba(15, 23, 42, 0.25),
-                0 0 0 1px rgba(226, 232, 240, 0.9);
-        }
-
-        .form-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 4px;
-            color: #0f172a;
-        }
-
-        .form-subtitle {
-            font-size: 13px;
-            color: var(--muted);
-            margin-bottom: 14px;
-        }
-
-        form {
-            margin-top: 4px;
-        }
-
-        label {
-            font-size: 13px;
-            font-weight: 500;
-            color: #0f172a;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .field-group {
-            margin-bottom: 12px;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 9px 10px;
-            border-radius: 10px;
-            border: 1px solid var(--border-subtle);
-            font-size: 14px;
-            color: #0f172a;
-            outline: none;
-            transition: border-color 0.18s ease, box-shadow 0.18s ease,
-                background-color 0.18s ease;
-            background: #f9fafb;
-        }
-
-        input:focus,
-        textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.45);
-            background: #ffffff;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .small-hint {
-            font-size: 11px;
-            color: var(--muted);
-            margin-top: 3px;
-        }
-
-        button {
-            background: var(--primary);
-            color: white;
-            padding: 10px 18px;
-            border: none;
-            border-radius: 999px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            margin-top: 6px;
-            display: inline-flex;
+        .property-block-title {
+            display: flex;
             align-items: center;
             gap: 8px;
-            transition: background 0.16s ease, transform 0.1s ease,
-                box-shadow 0.16s ease;
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
-        }
-
-        button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 14px 28px rgba(37, 99, 235, 0.4);
-        }
-
-        button:active {
-            transform: translateY(0);
-            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.35);
-        }
-
-        button:disabled {
-            opacity: 0.7;
-            cursor: default;
-            box-shadow: none;
-        }
-
-        .button-icon {
-            font-size: 15px;
-        }
-
-        #thanks {
-            margin-top: 10px;
             font-size: 13px;
+            font-weight: 600;
+            color: #e5e7eb;
         }
 
-        .status-text {
-            font-size: 11px;
-            color: var(--muted);
-            margin-top: 6px;
-            min-height: 14px;
+        .property-block-title span.icon {
+            font-size: 18px;
         }
-    </style>
-</head>
-<body>
-    <div class="shell">
-        <div class="layout">
-            <!-- Left: Demo explanation -->
-            <div>
-                <div class="badge">
-                    <span class="badge-dot"></span>
-                    Live demo for Realtors
-                </div>
 
-                <h1>Turn listing inquiries into instant, organized leads.</h1>
-                <p class="subtitle">
-                    This page shows how an automated "front desk" can greet your buyers,
-                    capture details, and instantly send you an email & text — without you lifting a finger.
-                </p>
+        .property-block-sub {
+            font-size: 12px;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+        }
 
-                <div class="property-tag">
-                    <span class="icon">🏡</span>
-                    Demo property: 123 Mountain View Dr, Boulder, CO
-                </div>
+        .property-select {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.9);
+            background: #0b1220;
+            color: #e5e7eb;
+            font-size: 13px;
+            outline: none;
+            cursor: pointer;
+        }
 
-                <div class="info-block">
-                    <div class="info-title">What happens when you submit this form?</div>
-                    <ul class="info-list">
-                        <li>
-                            <span class="bullet">➊</span>
-                            <span>The details are sent through an automation (via Make.com).</span>
-                        </li>
-                        <li>
-                            <span class="bullet">➋</span>
-                            <span>You receive an email and/or text with the lead information.</span>
-                        </li>
-                        <li>
-                            <span class="bullet">➌</span>
-                            <span>
-                                The inquiry is logged so you can follow up quickly and consistently.
-                            </span>
-                        </li>
-                    </ul>
-                    <p class="micro-copy">
-                        Use this yourself or share it with your team to see the workflow in action.
-                    </p>
-                </div>
-
-                <p class="logo-text">
-                    Built as a demo by <span class="mark">your automation front-end</span> —
-                    imagine this branded for your brokerage and listings.
-                </p>
-            </div>
-
-            <!-- Right: Form -->
-            <div class="form-card">
-                <div class="form-title">See the automation in action</div>
-                <div class="form-subtitle">
-                    Pretend you’re a buyer interested in this home. Submit the form and
-                    watch what happens behind the scenes.
-                </div>
-
-                <form id="inquiryForm">
-                    <div class="field-group">
-                        <label for="name">Your name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Alex Buyer"
-                            required
-                        />
-                    </div>
-
-                    <div class="field-group">
-                        <label for="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="you@example.com"
-                            required
-                        />
-                    </div>
-
-                    <div class="field-group">
-                        <label for="phone">Phone</label>
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            placeholder="(555) 123-4567"
-                            required
-                        />
-                        <div class="small-hint">
-                            Used for the demo text message, if your scenario supports it.
-                        </div>
-                    </div>
-
-                    <div class="field-group">
-                        <label for="message">What would you like to know?</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="4"
-                            placeholder="e.g. I'd like to schedule a showing this weekend, and I’m curious about recent comps in the area."
-                        ></textarea>
-                    </div>
-
-                    <button type="submit">
-                        <span class="button-icon">⚡</span>
-                        Run the demo
-                    </button>
-
-                    <p id="thanks" style="display:none; color: #16a34a;">
-                        Thanks! The automation has been triggered — check your inbox / phone.
-                    </p>
-
-                    <div class="status-text" id="statusText"></div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById("inquiryForm").addEventListener("submit", async function (e) {
-            e.preventDefault();
-
-            const button = this.querySelector("button[type='submit']");
-            const statusText = document.getElementById("statusText");
-            const thanks = document.getElementById("thanks");
-
-            const data = {
-                name: document.getElementById("name").value,
-                email: document.getElementById("email").value,
-                phone: document.getElementById("phone").value,
-                message: document.getElementById("message").value,
-                property: "123 Mountain View Dr, Boulder CO"
-            };
-
-            button.disabled = true;
-            statusText.textContent = "Sending data to your automation...";
-
-            try {
-                await fetch("https://hook.us2.make.com/8vl8pvp817hib9w1e3rz3efg8eiw2sly", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data)
-                });
-
-                // Hide form + show confirmation message
-                document.getElementById("inquiryForm").reset();
-                thanks.style.display = "block";
-                statusText.textContent = "If everything is connected, you should see the lead details come through shortly.";
-            } catch (error) {
-                console.error(error);
-                statusText.textContent =
-                    "Something went wrong sending the request. Please try again, or check your Make.com scenario.";
-            } finally {
-                button.disabled = false;
-            }
-        });
-    </script>
-</body>
-</html>
+        .property-select:focus {
+            border-color: #38bdf8;
+            box-s
