@@ -56,7 +56,7 @@
             };
             
             // Replace with your Make.com webhook URL
-            await fetch('YOUR_WEBHOOK_URL_HERE', {
+            await fetch('https://hook.us2.make.com/8vl8pvp817hib9w1e3rz3efg8eiw2sly', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
