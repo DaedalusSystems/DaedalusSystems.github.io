@@ -1,2 +1,70 @@
-# PrimeTide.github.io
-Hosting for the fake real estate submission form
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Inquiry - Boulder Homes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h1 { color: #333; }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #0066cc;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover { background: #0052a3; }
+    </style>
+</head>
+<body>
+    <h1>Interested in 123 Mountain View Dr?</h1>
+    <p>Fill out the form below and I'll get back to you shortly!</p>
+    
+    <form id="inquiryForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="tel" id="phone" placeholder="Your Phone Number" required>
+        <textarea id="message" rows="4" placeholder="Tell me about your interest in this property..."></textarea>
+        <button type="submit">Submit Inquiry</button>
+    </form>
+    
+    <p id="thanks" style="display:none; color: green;">Thanks! You'll hear from me shortly.</p>
+
+    <script>
+        document.getElementById('inquiryForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const data = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value,
+                property: "123 Mountain View Dr, Boulder CO"
+            };
+            
+            // Replace with your Make.com webhook URL
+            await fetch('YOUR_WEBHOOK_URL_HERE', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            
+            document.getElementById('inquiryForm').style.display = 'none';
+            document.getElementById('thanks').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
