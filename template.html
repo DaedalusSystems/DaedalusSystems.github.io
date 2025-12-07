@@ -2,73 +2,189 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Page Title – Daedalus Systems</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="wrapper">
+  <title>Daedalus Systems – Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Shared navbar -->
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="services.html">Solutions</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <style>
+    :root {
+      /* Base backgrounds */
+      --bg-body: #F4EFE7;          /* main page background */
+      --bg-elevated: #F9F6F2;      /* cards, header, modals */
+      --bg-soft: #F1ECE4;          /* subtle sections/stripes */
 
-    <!-- Page content -->
-    <main>
-      <!-- Hero section: big headline + intro -->
-      <section class="hero">
-        <h1>Hero Page Title Goes Here</h1>
-        <p>
-          A short 2–3 sentence description of what this page is about and why it
-          matters. Keep it clear, concrete, and focused on the visitor.
-        </p>
-        <a href="contact.html" class="btn btn-primary">Primary Call to Action</a>
-        <a href="services.html" class="btn btn-secondary">Secondary Action</a>
-      </section>
+      /* Borders & dividers */
+      --border-subtle: #E3D9CC;    /* card edges, light dividers */
+      --border-strong: #C8B8A5;    /* input borders, table outlines */
+      --border-focus: #50718B;     /* focus ring (uses steel blue) */
 
-      <!-- Content section #1 -->
-      <section class="section">
-        <h2>Section Heading</h2>
-        <p>
-          Use this section for a key idea, explanation, or benefit. Stick to one main
-          point per section so the page is easy to scan.
-        </p>
-        <ul>
-          <li>Short, punchy bullet point.</li>
-          <li>Another clear benefit or detail.</li>
-          <li>One more, if it truly adds value.</li>
-        </ul>
-      </section>
+      /* Core text */
+      --text-main: #2B1F20;        /* primary text, headlines */
+      --text-body: #3D2B2C;        /* normal paragraph text */
+      --text-muted: #7A6662;       /* helper text, labels, captions */
+      --text-subtle: #A1918A;      /* placeholder text */
+      --text-on-dark: #F9F6F2;     /* text on dark buttons/sections */
 
-      <!-- Content section #2 -->
-      <section class="section">
-        <h2>Another Section Heading</h2>
-        <p>
-          Add another chunk of content here: a use case, a mini “how it works,” or a
-          simple story that makes this page more persuasive.
-        </p>
-      </section>
+      /* Brand palette (original colors) */
+      --steel-blue: #50718B;       /* brand anchor, links, secondary CTAs */
+      --dark-iron: #50241E;        /* deep accents, headings, footer bg */
+      --bright-bronze: #CE7623;    /* primary CTA color */
+      --clay: #B28770;             /* soft backgrounds, chips, tags */
+      --purple-slate: #615576;     /* alt headings, badges */
+      --dusty-rose: #A8808E;       /* highlights, subtle accents */
 
-      <!-- Optional final CTA section -->
-      <section class="section">
-        <h2>Ready to Take the Next Step?</h2>
-        <p>
-          End with a clear next step. This is where you invite them to book a call,
-          view pricing, or try a demo.
-        </p>
-        <a href="contact.html" class="btn btn-primary">Book a Discovery Call</a>
-      </section>
-    </main>
+      /* Functional accents (buttons, hovers, states) */
+      --btn-primary-bg: #CE7623;   /* bright bronze */
+      --btn-primary-bg-hover: #B9621F;
+      --btn-primary-text: #F9F6F2;
 
-    <!-- Shared footer -->
-    <footer>
-      © Daedalus Systems · Custom automation & systems design
-    </footer>
-  </div>
-</body>
-</html>
+      --btn-secondary-bg: #50718B; /* steel blue */
+      --btn-secondary-bg-hover: #435F75;
+      --btn-secondary-text: #F9F6F2;
+
+      --btn-ghost-bg-hover: #EDE3D7;   /* ghost/outline hover fill */
+      --btn-ghost-border: #C8B8A5;
+      --btn-ghost-text: #3D2B2C;
+
+      /* Links */
+      --link: #50718B;             /* steel blue */
+      --link-hover: #3F5A70;
+      --link-visited: #615576;     /* purple-slate */
+
+      /* Inputs */
+      --input-bg: #F9F6F2;
+      --input-border: #D3C5B5;
+      --input-border-hover: #C0B09C;
+      --input-placeholder: #A1918A;
+      --input-text: #3D2B2C;
+
+      /* Semantic (optional helpers) */
+      --success: #2F855A;
+      --success-soft: #E3F4EC;
+      --warning: #D97706;
+      --warning-soft: #FFF4E3;
+      --error: #B91C1C;
+      --error-soft: #FDE8E8;
+    }
+
+    /* Global reset-ish */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-body);
+      color: var(--text-body);
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+    }
+
+    /* Layout shell */
+    .page-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Header / nav */
+    header.site-header {
+      background: var(--bg-elevated);
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      position: sticky;
+      top: 0.75rem;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      white-space: nowrap;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 25% 20%, #F9F6F2 0, #F9F6F2 25%, #CE7623 26%, #50241E 75%);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.09);
+    }
+
+    .brand-text-main {
+      font-weight: 650;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: var(--dark-iron);
+    }
+
+    .brand-text-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    nav.main-nav {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.1s ease;
+    }
+
+    .nav-link:hover {
+      background: var(--bg-soft);
+      color: var(--text-body);
+      border-color: var(--border-subtle);
+      transform: translateY(-1px);
+    }
+
+    .nav-link.is-active {
+      background: var(--steel-blue);
+      color: var(--text-on-dark);
+      border-color: transparent;
+    }
+
+    .nav-cta {
+      white-space: nowrap;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: none;
