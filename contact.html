@@ -5,7 +5,7 @@
     <title>Smart Lead Capture Demo – Daedalus Systems</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Use the shared site styles for the navbar + base typography -->
+    <!-- Shared site styles -->
     <link rel="stylesheet" href="style.css" />
 
     <style>
@@ -18,11 +18,7 @@
             --border-subtle: #333;     /* Soft dark border */
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        /* We’ll let style.css handle global reset; no need to reset * here */
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -32,16 +28,14 @@
                 radial-gradient(circle at bottom, rgba(80, 60, 30, 0.25), transparent 60%),
                 var(--bg);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
+            padding: 24px 16px 40px;
             color: #f5f5f5;
         }
 
         .shell {
             max-width: 980px;
             width: 100%;
+            margin: 0 auto;
             background: rgba(14, 14, 15, 0.7);
             border-radius: 24px;
             padding: 32px 40px;
@@ -69,7 +63,7 @@
             }
 
             body {
-                padding: 16px;
+                padding: 16px 12px 32px;
             }
         }
 
@@ -188,191 +182,4 @@
         .form-card {
             background: var(--card-bg);
             border-radius: 18px;
-            padding: 22px 22px 18px;
-            box-shadow:
-                0 16px 30px rgba(0, 0, 0, 0.55),
-                0 0 0 1px rgba(51, 51, 51, 0.9);
-            color: #f5f5f5;
-        }
-
-        .form-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .form-subtitle {
-            font-size: 13px;
-            color: var(--muted);
-            margin-bottom: 14px;
-        }
-
-        form {
-            margin-top: 4px;
-        }
-
-        label {
-            font-size: 13px;
-            font-weight: 500;
-            color: #f5f5f5;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .field-group {
-            margin-bottom: 12px;
-        }
-
-        input,
-        textarea,
-        select {
-            width: 100%;
-            padding: 9px 10px;
-            border-radius: 10px;
-            border: 1px solid var(--border-subtle);
-            font-size: 14px;
-            color: #f5f5f5;
-            outline: none;
-            transition: border-color 0.18s ease, box-shadow 0.18s ease,
-                background-color 0.18s ease;
-            background: #101012;
-        }
-
-        input:focus,
-        textarea:focus,
-        select:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 1px rgba(201, 113, 34, 0.55);
-            background: #151518;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .small-hint {
-            font-size: 11px;
-            color: var(--muted);
-            margin-top: 3px;
-        }
-
-        button {
-            background: var(--primary);
-            color: #0e0e0f;
-            padding: 10px 18px;
-            border: none;
-            border-radius: 999px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            margin-top: 6px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.16s ease, transform 0.1s ease,
-                box-shadow 0.16s ease;
-            box-shadow: 0 10px 20px rgba(201, 113, 34, 0.35);
-        }
-
-        button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 14px 28px rgba(201, 113, 34, 0.4);
-        }
-
-        button:active {
-            transform: translateY(0);
-            box-shadow: 0 8px 16px rgba(201, 113, 34, 0.35);
-        }
-
-        button:disabled {
-            opacity: 0.7;
-            cursor: default;
-            box-shadow: none;
-        }
-
-        .button-icon {
-            font-size: 15px;
-        }
-
-        #thanks {
-            margin-top: 10px;
-            font-size: 13px;
-            color: #4ade80;
-        }
-
-        .status-text {
-            font-size: 11px;
-            color: var(--muted);
-            margin-top: 6px;
-            min-height: 14px;
-        }
-    </style>
-</head>
-<body>
-<nav class="navbar">
-  <a href="index.html">Home</a>
-  <a href="services.html">Solutions</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-    <div class="shell">
-        <div class="layout">
-            <!-- Left: Demo explanation -->
-            <div>
-                <div class="badge">
-                    <span class="badge-dot"></span>
-                    Live demo for Realtors
-                </div>
-
-                <h1>Turn listing inquiries into instant, organized leads.</h1>
-                <p class="subtitle">
-                    This page shows how an automated front desk can greet your buyers,
-                    capture details, and instantly send you an email and text,
-                    without you lifting a finger.
-                </p>
-
-                <!-- Property info -->
-                <div class="property-info">
-                    <div class="property-info-header">
-                        <span class="icon">🏡</span>
-                        <div class="property-info-title">Demo properties</div>
-                    </div>
-                    <div class="property-info-current">
-                        Use the property dropdown in the form to see how inquiries can be tied to different listings.
-                    </div>
-                </div>
-
-                <div class="info-block">
-                    <div class="info-title">What happens when you submit this form?</div>
-                    <ul class="info-list">
-                        <li>
-                            <span class="bullet">➊</span>
-                            <span>
-                                The details are sent through an automation
-                                <span style="opacity:0.9;">
-                                    (built on Make.com, an industry-standard platform for connecting apps and workflows).
-                                </span>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="bullet">➋</span>
-                            <span>
-                                You receive an email and, if configured, a text message
-                                with the lead information.
-                            </span>
-                        </li>
-                        <li>
-                            <span class="bullet">➌</span>
-                            <span>
-                                The inquiry is logged and automatically scored based on
-                                multiple factors, so you can see and prioritize the
-                                hottest leads first.
-                            </span>
-                        </li>
-                    </ul>
-                    <p class="micro-copy">
-                        Use this yourself or share it with your team to see how a front-end
+            padding: 22px 22
