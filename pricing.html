@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Packages – Daedalus Systems</title>
+  <title>Daedalus Systems – Overview</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -245,6 +245,10 @@
       color: var(--text-main);
     }
 
+    .hero-highlight {
+      color: var(--bright-bronze);
+    }
+
     .hero-body {
       font-size: 0.98rem;
       line-height: 1.5;
@@ -269,11 +273,100 @@
       align-items: center;
     }
 
-    /* PACKAGE GRID BELOW HERO */
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #16A34A;
+      box-shadow: 0 0 0 6px rgba(22,163,74,0.18);
+    }
+
+    /* RIGHT COLUMN – SIDE PANEL */
+    .side-panel {
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 10% 0, rgba(206,118,35,0.14), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(80,36,30,0.18), transparent 55%),
+        var(--bg-soft);
+      border: 1px solid var(--border-subtle);
+      padding: 1.35rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .side-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark-iron);
+      margin-bottom: 0.2rem;
+    }
+
+    .side-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .mini-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin-bottom: 0.25rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-subtle), transparent);
+      margin: 0.3rem 0 0.6rem;
+    }
+
+    .color-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .swatch {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(249,246,242,0.95);
+      font-size: 0.74rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swatch-color {
+      height: 36px;
+    }
+
+    .swatch-body {
+      padding: 0.4rem 0.55rem 0.5rem;
+    }
+
+    .swatch-name {
+      font-weight: 550;
+      margin-bottom: 0.05rem;
+      color: var(--text-body);
+    }
+
+    .swatch-hex {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: var(--text-muted);
+    }
+
+    .side-footnote {
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+    }
+
+    /* SUB-SECTION BELOW HERO */
     .sub-grid {
       margin-top: 1.25rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1rem;
     }
 
@@ -287,7 +380,7 @@
     }
 
     .info-title {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
       margin-bottom: 0.35rem;
       color: var(--dark-iron);
@@ -301,36 +394,6 @@
       background: rgba(80,36,30,0.08);
       color: var(--dark-iron);
       margin-bottom: 0.4rem;
-    }
-
-    .info-body {
-      margin: 0.2rem 0 0.5rem;
-    }
-
-    .info-list {
-      padding-left: 1.1rem;
-      margin: 0.2rem 0 0.5rem;
-    }
-
-    /* FINAL CTA BLOCK */
-    .cta-block {
-      margin-top: 1.5rem;
-      background: var(--bg-surface);
-      border-radius: 20px;
-      border: 1px solid var(--border-subtle);
-      padding: 1.25rem 1.2rem 1.4rem;
-      font-size: 0.9rem;
-    }
-
-    .cta-block h2 {
-      margin: 0 0 0.5rem;
-      font-size: 1.1rem;
-      color: var(--text-main);
-    }
-
-    .cta-block p {
-      margin: 0 0 0.9rem;
-      color: var(--text-body);
     }
 
     /* FOOTER */
@@ -379,7 +442,7 @@
 <body>
   <div class="page">
 
-    <!-- HEADER -->
+    <!-- HEADER (shared across pages) -->
     <header class="site-header">
       <div class="brand">
         <div class="brand-mark"></div>
@@ -390,4 +453,161 @@
       </div>
 
       <nav class="main-nav">
-        <a href="index.html" class="nav-link">Ov
+        <a href="index.html" class="nav-link is-active">Overview</a>
+        <a href="services.html" class="nav-link">Solutions</a>
+        <a href="pricing.html" class="nav-link">Packages</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="btn btn-secondary">Book a 15-min consult</button>
+      </div>
+    </header>
+
+    <!-- MAIN HERO CONTENT -->
+    <main>
+      <section class="hero-card">
+        <!-- LEFT: main message -->
+        <div>
+          <div class="eyebrow">For agents who can’t afford slow follow-up</div>
+          <h1 class="hero-title">
+            Turn every new lead into a <span class="hero-highlight">handled conversation</span>.
+          </h1>
+          <p class="hero-body">
+            [[Short overview of what Daedalus Systems does – placeholder text for now.]]
+            This will explain, in a couple of sentences, how your automations catch
+            leads quickly, organize them, and keep your pipeline moving.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary">[[Primary CTA]]</button>
+            <button class="btn btn-ghost">[[Secondary CTA]]</button>
+          </div>
+
+          <div class="hero-meta">
+            <span class="status-dot"></span>
+            <span>[[Meta line – e.g., “Average response time: under 30 seconds”]]</span>
+            <span>•</span>
+            <span>[[Meta line – e.g., “No long-term contracts”]]</span>
+          </div>
+        </div>
+
+        <!-- RIGHT: side info panel -->
+        <aside class="side-panel">
+          <div>
+            <div class="mini-label">Design system</div>
+            <div class="divider"></div>
+            <div class="side-title">Your brand palette in action</div>
+            <p class="side-text">
+              [[Short note about the visual feel – placeholder.]] Light, warm surfaces with
+              steel blue and bronze accents keep the site sharp, professional, and human.
+            </p>
+          </div>
+
+          <div>
+            <div class="mini-label">Core colors</div>
+            <div class="color-row">
+              <div class="swatch">
+                <div class="swatch-color" style="background: var(--steel-blue);"></div>
+                <div class="swatch-body">
+                  <div class="swatch-name">Steel Blue</div>
+                  <div class="swatch-hex">#50718B</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background: var(--dark-iron);"></div>
+                <div class="swatch-body">
+                  <div class="swatch-name">Dark Iron</div>
+                  <div class="swatch-hex">#50241E</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background: var(--bright-bronze);"></div>
+                <div class="swatch-body">
+                  <div class="swatch-name">Bronze</div>
+                  <div class="swatch-hex">#CE7623</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background: var(--clay);"></div>
+                <div class="swatch-body">
+                  <div class="swatch-name">Clay</div>
+                  <div class="swatch-hex">#B28770</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background: var(--purple-slate);"></div>
+                <div class="swatch-body">
+                  <div class="swatch-name">Slate</div>
+                  <div class="swatch-hex">#615576</div>
+                </div>
+              </div>
+              <div class="swatch">
+                <div class="swatch-color" style="background: var(--dusty-rose);"></div>
+                <div class="swatch-body">
+                  <div class="swatch-name">Dusty Rose</div>
+                  <div class="swatch-hex">#A8808E</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="mini-label">Implementation</div>
+            <p class="side-footnote">
+              [[Placeholder note about the system.]] This panel can later talk about how Talos /
+              Daedalus fits into their current tools and workflows.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <!-- SUB-SECTION: three info cards -->
+      <section class="sub-grid">
+        <article class="info-card">
+          <div class="info-tag">01 · Placeholder</div>
+          <div class="info-title">Key benefit or idea</div>
+          <p>
+            [[Placeholder text.]] This card can eventually explain a core advantage of
+            working with you—like instant responses or better lead organization.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <div class="info-tag">02 · Placeholder</div>
+          <div class="info-title">How it works</div>
+          <p>
+            [[Placeholder text.]] Use this card for a simple “how it works” overview or a
+            high-level look at your process.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <div class="info-tag">03 · Placeholder</div>
+          <div class="info-title">Why it’s different</div>
+          <p>
+            [[Placeholder text.]] This card can later highlight what makes Daedalus Systems
+            different from generic automation tools.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <!-- FOOTER (shared across pages) -->
+    <footer class="site-footer">
+      <div>© <span id="year"></span> Daedalus Systems. All rights reserved.</div>
+      <div>
+        <a href="#">Privacy</a> ·
+        <a href="#">Terms</a> ·
+        <a href="contact.html">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // keep year current
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
