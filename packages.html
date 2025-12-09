@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Daedalus Systems – Overview</title>
+  <title>Daedalus Systems – Packages</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -362,38 +362,100 @@
       color: var(--text-subtle);
     }
 
-    /* SUB-SECTION BELOW HERO */
-    .sub-grid {
+    /* SUB-SECTION: PACKAGES GRID */
+    .plans-grid {
       margin-top: 1.25rem;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1rem;
     }
 
-    .info-card {
+    .plan-card {
       background: var(--bg-soft);
       border-radius: 18px;
       border: 1px solid var(--border-subtle);
-      padding: 1rem 1rem 1.1rem;
-      font-size: 0.86rem;
-      color: var(--text-body);
+      padding: 1.1rem 1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      position: relative;
     }
 
-    .info-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-      color: var(--dark-iron);
+    .plan-card.featured {
+      border-color: var(--bright-bronze);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.12);
     }
 
-    .info-tag {
-      display: inline-block;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
+    .plan-label {
       font-size: 0.72rem;
-      background: rgba(80,36,30,0.08);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+    }
+
+    .plan-name {
+      font-size: 1.1rem;
+      font-weight: 600;
       color: var(--dark-iron);
-      margin-bottom: 0.4rem;
+    }
+
+    .plan-tagline {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .plan-price {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      font-weight: 500;
+      margin-top: 0.1rem;
+    }
+
+    .plan-note {
+      font-size: 0.78rem;
+      color: var(--text-subtle);
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0.75rem;
+      font-size: 0.82rem;
+      color: var(--text-body);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 0.4rem;
+      align-items: flex-start;
+    }
+
+    .feature-check {
+      font-size: 0.9rem;
+      line-height: 1.2;
+      margin-top: 0.05rem;
+      color: var(--bright-bronze);
+    }
+
+    .feature-empty {
+      font-size: 0.9rem;
+      line-height: 1.2;
+      margin-top: 0.05rem;
+      color: var(--text-subtle);
+    }
+
+    .plan-footer-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    .plan-cta {
+      margin-top: 0.4rem;
+      display: inline-flex;
     }
 
     /* FOOTER */
@@ -452,7 +514,7 @@
         </div>
       </div>
 
-     <nav class="main-nav">
+      <nav class="main-nav">
         <a href="index.html" class="nav-link">Overview</a>
         <a href="solutions.html" class="nav-link">Solutions</a>
         <a href="packages.html" class="nav-link is-active">Packages</a>
@@ -470,126 +532,213 @@
       <section class="hero-card">
         <!-- LEFT: main message -->
         <div>
-          <div class="eyebrow">For agents who can’t afford slow follow-up</div>
+          <div class="eyebrow">Packages for solo agents</div>
           <h1 class="hero-title">
-            Turn every new lead into a <span class="hero-highlight">handled conversation</span>.
+            Choose how deeply Talos steps into your <span class="hero-highlight">day-to-day work</span>.
           </h1>
           <p class="hero-body">
-            [[Short overview of what Daedalus Systems does – placeholder text for now.]]
-            This will explain, in a couple of sentences, how your automations catch
-            leads quickly, organize them, and keep your pipeline moving.
+            Every package starts with the same foundation: we study how you actually work today, then build
+            automations that support that rhythm instead of replacing it. From there, you choose how far
+            you want to go—from a focused lead-capture system to a fully managed operations layer.
+          </p>
+          <p class="hero-body">
+            Pricing is scoped clearly after a short call, based on the tools you use and the complexity
+            of your workflows. No mystery ranges, no surprise add-ons—just a system that fits both your
+            business and your season.
           </p>
 
           <div class="hero-actions">
-            <button class="btn btn-primary">[[Primary CTA]]</button>
-            <button class="btn btn-ghost">[[Secondary CTA]]</button>
+            <button class="btn btn-primary">Request a custom quote</button>
+            <button class="btn btn-ghost">Book a 15-min consult</button>
           </div>
 
           <div class="hero-meta">
             <span class="status-dot"></span>
-            <span>[[Meta line – e.g., “Average response time: under 30 seconds”]]</span>
+            <span>Done-for-you setup, integration, and refinement.</span>
             <span>•</span>
-            <span>[[Meta line – e.g., “No long-term contracts”]]</span>
+            <span>Built around CRMs like Follow Up Boss, Wise Agent, and LionDesk.</span>
           </div>
         </div>
 
         <!-- RIGHT: side info panel -->
         <aside class="side-panel">
           <div>
-            <div class="mini-label">Design system</div>
+            <div class="mini-label">How pricing works</div>
             <div class="divider"></div>
-            <div class="side-title">Your brand palette in action</div>
+            <div class="side-title">Simple structure, tailored to your workflow.</div>
             <p class="side-text">
-              [[Short note about the visual feel – placeholder.]] Light, warm surfaces with
-              steel blue and bronze accents keep the site sharp, professional, and human.
+              Rather than charging you by “seats” or locking you into a platform subscription, we price
+              by the real complexity of your setup—how many tools, how many workflows, and how much you
+              want Talos to carry for you each day.
             </p>
           </div>
 
           <div>
-            <div class="mini-label">Core colors</div>
-            <div class="color-row">
-              <div class="swatch">
-                <div class="swatch-color" style="background: var(--steel-blue);"></div>
-                <div class="swatch-body">
-                  <div class="swatch-name">Steel Blue</div>
-                  <div class="swatch-hex">#50718B</div>
-                </div>
-              </div>
-              <div class="swatch">
-                <div class="swatch-color" style="background: var(--dark-iron);"></div>
-                <div class="swatch-body">
-                  <div class="swatch-name">Dark Iron</div>
-                  <div class="swatch-hex">#50241E</div>
-                </div>
-              </div>
-              <div class="swatch">
-                <div class="swatch-color" style="background: var(--bright-bronze);"></div>
-                <div class="swatch-body">
-                  <div class="swatch-name">Bronze</div>
-                  <div class="swatch-hex">#CE7623</div>
-                </div>
-              </div>
-              <div class="swatch">
-                <div class="swatch-color" style="background: var(--clay);"></div>
-                <div class="swatch-body">
-                  <div class="swatch-name">Clay</div>
-                  <div class="swatch-hex">#B28770</div>
-                </div>
-              </div>
-              <div class="swatch">
-                <div class="swatch-color" style="background: var(--purple-slate);"></div>
-                <div class="swatch-body">
-                  <div class="swatch-name">Slate</div>
-                  <div class="swatch-hex">#615576</div>
-                </div>
-              </div>
-              <div class="swatch">
-                <div class="swatch-color" style="background: var(--dusty-rose);"></div>
-                <div class="swatch-body">
-                  <div class="swatch-name">Dusty Rose</div>
-                  <div class="swatch-hex">#A8808E</div>
-                </div>
-              </div>
-            </div>
+            <div class="mini-label">What’s always included</div>
+            <p class="side-text">
+              Every package includes:
+            </p>
+            <ul class="side-text" style="padding-left: 1.1rem; margin: 0.25rem 0 0;">
+              <li>Discovery & workflow mapping session.</li>
+              <li>Done-for-you build and testing.</li>
+              <li>Live handoff call & walkthrough.</li>
+              <li>Light documentation for your future self.</li>
+            </ul>
           </div>
 
           <div>
-            <div class="mini-label">Implementation</div>
+            <div class="mini-label">Next step</div>
             <p class="side-footnote">
-              [[Placeholder note about the system.]] This panel can later talk about how Talos /
-              Daedalus fits into their current tools and workflows.
+              On a quick consult, we’ll map where you are today and recommend the tier that makes the
+              most sense. If none of them fit cleanly, we’ll design a custom build instead.
             </p>
           </div>
         </aside>
       </section>
 
-      <!-- SUB-SECTION: three info cards -->
-      <section class="sub-grid">
-        <article class="info-card">
-          <div class="info-tag">01 · Placeholder</div>
-          <div class="info-title">Key benefit or idea</div>
-          <p>
-            [[Placeholder text.]] This card can eventually explain a core advantage of
-            working with you—like instant responses or better lead organization.
-          </p>
+      <!-- PACKAGES GRID -->
+      <section class="plans-grid">
+        <!-- Plan 1: Foundation -->
+        <article class="plan-card">
+          <div class="plan-label">Tier 01</div>
+          <div class="plan-name">Foundation · Lead Capture</div>
+          <div class="plan-tagline">Start with a reliable, always-on front door.</div>
+          <div class="plan-price">Project-based build · light ongoing support.</div>
+          <div class="plan-note">Best for agents testing automation on one core workflow.</div>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Discovery session focused on your current lead flow.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Website / form / portal lead capture into your CRM.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Instant, on-brand first-response messages for new leads.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Basic tagging and source tracking in your CRM.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-empty">–</span>
+              <span>Multi-step follow-up sequences.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-empty">–</span>
+              <span>Deal / transaction stage automations.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-empty">–</span>
+              <span>Ongoing monthly optimization & support.</span>
+            </li>
+          </ul>
+
+          <button class="btn btn-ghost plan-cta" onclick="window.location.href='contact.html'">
+            Talk about Foundation
+          </button>
+          <div class="plan-footer-text">
+            A good fit if you want to fix “speed to lead” first and prove the value before expanding.
+          </div>
         </article>
 
-        <article class="info-card">
-          <div class="info-tag">02 · Placeholder</div>
-          <div class="info-title">How it works</div>
-          <p>
-            [[Placeholder text.]] Use this card for a simple “how it works” overview or a
-            high-level look at your process.
-          </p>
+        <!-- Plan 2: Core System -->
+        <article class="plan-card featured">
+          <div class="plan-label">Tier 02</div>
+          <div class="plan-name">Core System · Digital Front Desk</div>
+          <div class="plan-tagline">Your intake, follow-up, and CRM working in sync.</div>
+          <div class="plan-price">Project-based build · optional monthly stewardship.</div>
+          <div class="plan-note">Best for solo agents ready to professionalize their operations.</div>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Everything in <strong>Foundation</strong>.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Multi-step follow-up sequences for new and quiet leads.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Reminder tasks and internal notifications when action is needed.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>De-duplication rules and basic CRM hygiene improvements.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Automated task creation when deals hit key stages.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-empty">–</span>
+              <span>Custom reporting dashboards and advanced metrics.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-empty">–</span>
+              <span>High-touch, ongoing monthly optimization.</span>
+            </li>
+          </ul>
+
+          <button class="btn btn-primary plan-cta" onclick="window.location.href='contact.html'">
+            Start with Core System
+          </button>
+          <div class="plan-footer-text">
+            The sweet spot for most solo agents: your tech finally feels like a front desk instead of
+            another to-do list.
+          </div>
         </article>
 
-        <article class="info-card">
-          <div class="info-tag">03 · Placeholder</div>
-          <div class="info-title">Why it’s different</div>
-          <p>
-            [[Placeholder text.]] This card can later highlight what makes Daedalus Systems
-            different from generic automation tools.
-          </p>
+        <!-- Plan 3: Stewardship -->
+        <article class="plan-card">
+          <div class="plan-label">Tier 03</div>
+          <div class="plan-name">Stewardship · Ongoing Partnership</div>
+          <div class="plan-tagline">Your own systems engineer, on call.</div>
+          <div class="plan-price">Monthly engagement · custom scope.</div>
+          <div class="plan-note">Best for agents who want to grow with a long-term operations partner.</div>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Everything in <strong>Core System</strong>.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Monthly review and tuning of key automations.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Priority tweaks when your process or tools change.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Custom reporting or lightweight dashboards for visibility.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Advisory support as you add new lead sources or experiments.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-check">✓</span>
+              <span>Reserved hours each month for improvements and new ideas.</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-empty">–</span>
+              <span>One-size-fits-all templates. Everything is tuned to you.</span>
+            </li>
+          </ul>
+
+          <button class="btn btn-ghost plan-cta" onclick="window.location.href='contact.html'">
+            Explore Stewardship
+          </button>
+          <div class="plan-footer-text">
+            Ideal if you see your systems as an asset to grow over time—and want someone you trust
+            minding them with you.
+          </div>
         </article>
       </section>
     </main>
