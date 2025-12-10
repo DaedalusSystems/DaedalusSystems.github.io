@@ -159,6 +159,40 @@
       margin-bottom: 0.7rem;
     }
 
+    .who-list {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 720px;
+}
+
+.who-item {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.who-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--bright-bronze);
+  margin-top: 0.45rem;
+  box-shadow: 0 0 0 4px rgba(206,118,35,0.18);
+}
+
+.who-body {
+  font-size: 0.93rem;
+  color: var(--text-dark);
+  line-height: 1.55;
+}
+
+.who-body strong {
+  color: var(--dark-iron);
+}
+
     .stripe-title {
       font-size: 1.25rem;
       margin-bottom: 1.2rem;
