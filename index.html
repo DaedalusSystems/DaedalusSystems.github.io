@@ -34,22 +34,7 @@
       background: var(--bg-light);
     }
 
-    @media (min-width: 900px) {
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: -1;
-
-      background:
-          radial-gradient(circle at 0 20%, rgba(80, 36, 30, 0.08), transparent 60%),
-          radial-gradient(circle at 0 80%, rgba(80, 113, 139, 0.08), transparent 60%),
-          radial-gradient(circle at 100% 30%, rgba(97, 85, 118, 0.08), transparent 60%),
-          radial-gradient(circle at 100% 90%, rgba(178, 135, 112, 0.08), transparent 60%),
-          var(--bg-light);
-      }
-    }
+    
 
     a { text-decoration: none; color: inherit; }
 
@@ -376,6 +361,23 @@
     .hero-stripe {
       position: relative;
       overflow: hidden;
+    }
+
+    @media (min-width: 900px) {
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+
+      background:
+          radial-gradient(circle at 0 20%, rgba(80, 36, 30, 0.08), transparent 60%),
+          radial-gradient(circle at 0 80%, rgba(80, 113, 139, 0.08), transparent 60%),
+          radial-gradient(circle at 100% 30%, rgba(97, 85, 118, 0.08), transparent 60%),
+          radial-gradient(circle at 100% 90%, rgba(178, 135, 112, 0.08), transparent 60%),
+          var(--bg-light);
+      }
     }
     
     .hero-stripe::before {
