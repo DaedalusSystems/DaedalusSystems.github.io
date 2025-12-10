@@ -27,20 +27,21 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--text-dark);
-  overflow-x: hidden;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text-dark);
+      overflow-x: hidden;
 
-  /* base background */
-  background-color: var(--bg-light);
+      /* Base background */
+      background-color: var(--bg-light);
 
-  /* two copies of the same image: left and right */
-  background-image: url("circuits-side.png"), url("circuits-side.png");
-  background-repeat: repeat-y, repeat-y;
-  background-position: left top, right top;
-  background-size: 260px auto, 260px auto;
-}
-
+      /* Two copies of the same image: left and right */
+      background-image: 
+        url("circuits-side.png"),
+        url("circuits-side.png");
+      background-repeat: repeat-y, repeat-y;
+      background-position: left top, right top;
+      background-size: 260px auto, 260px auto;
+    }
 
     a { text-decoration: none; color: inherit; }
 
@@ -290,59 +291,17 @@
       flex-wrap: wrap;
     }
 
-
-    /* AMBIENT CIRCUIT BACKGROUNDS (PNG METHOD) */
-.ambient-left,
-.ambient-right {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 260px;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.22; /* global strength */
-}
-
-.ambient-left {
-  left: 0;
-  background-image: url("circuits-left.png");
-  background-repeat: repeat-y;
-  background-size: contain;
-  background-position: left top;
-}
-
-.ambient-right {
-  right: 0;
-  background-image: url("circuits-left.png");
-  background-repeat: repeat-y;
-  background-size: contain;
-  background-position: right top;
-  transform: scaleX(-1);
-}
-
-/* Keep all content above */
-header,
-section,
-footer {
-  position: relative;
-  z-index: 1;
-}
-
-/* Hide on mobile */
-@media (max-width: 900px) {
-  .ambient-left,
-  .ambient-right {
-    display: none;
-  }
-}
+    /* Hide circuits on mobile */
+    @media (max-width: 900px) {
+      body {
+        background-image: none;
+      }
+    }
 
   </style>
 </head>
 
 <body>
-<div class="ambient-left"></div>
-<div class="ambient-right"></div>
-  
   <header class="top-bar">
     <div class="logo-row">
       <div class="logo-mark"></div>
@@ -489,125 +448,6 @@ footer {
     <div>© <span id="year"></span> Daedalus Systems</div>
     <div>Boulder, CO · Built as a one-person workshop</div>
   </footer>
-
-  <!-- Side circuitry overlay (added at the end so it stays on top) -->
-  <div class="ambient-left">
-    <svg
-      class="circuit-svg"
-      viewBox="0 0 260 800"
-      preserveAspectRatio="xMidYMid meet"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <g fill="none">
-        <!-- Main vertical spine -->
-        <path
-          class="circuit-main"
-          d="M250 10 V140 H210 V230 H170 V340 H140 V460 H190 V560 H220 V720"
-        />
-
-        <!-- Secondary branches -->
-        <path
-          class="circuit-secondary"
-          d="
-            M230 60 H190 V130 H150 V190
-            M230 260 H200 V310 H160
-            M230 420 H200 V380 H160 V330
-            M230 620 H200 V580 H160
-          "
-        />
-
-        <!-- Tertiary, finer traces -->
-        <path
-          class="circuit-tertiary"
-          d="
-            M215 100 H175 V80
-            M215 160 H185 V200
-            M215 300 H185 V280
-            M215 360 H175 V390
-            M215 500 H185 V540
-            M215 660 H175 V640
-          "
-        />
-
-        <!-- Nodes / connection points -->
-        <circle class="circuit-node" cx="250" cy="10"  r="3" />
-        <circle class="circuit-node" cx="210" cy="140" r="3" />
-        <circle class="circuit-node" cx="170" cy="230" r="3" />
-        <circle class="circuit-node" cx="140" cy="340" r="3" />
-        <circle class="circuit-node" cx="190" cy="460" r="3" />
-        <circle class="circuit-node" cx="220" cy="560" r="3" />
-        <circle class="circuit-node" cx="220" cy="720" r="3" />
-
-        <!-- Softer, background nodes -->
-        <circle class="circuit-node-soft" cx="200" cy="90"  r="2.5" />
-        <circle class="circuit-node-soft" cx="180" cy="180" r="2.5" />
-        <circle class="circuit-node-soft" cx="200" cy="280" r="2.5" />
-        <circle class="circuit-node-soft" cx="180" cy="360" r="2.5" />
-        <circle class="circuit-node-soft" cx="200" cy="520" r="2.5" />
-        <circle class="circuit-node-soft" cx="180" cy="600" r="2.5" />
-      </g>
-    </svg>
-  </div>
-
-  <div class="ambient-right">
-    <svg
-      class="circuit-svg"
-      viewBox="0 0 260 800"
-      preserveAspectRatio="xMidYMid meet"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <g fill="none">
-        <!-- Main vertical spine -->
-        <path
-          class="circuit-main"
-          d="M250 10 V140 H210 V230 H170 V340 H140 V460 H190 V560 H220 V720"
-        />
-
-        <!-- Secondary branches -->
-        <path
-          class="circuit-secondary"
-          d="
-            M230 60 H190 V130 H150 V190
-            M230 260 H200 V310 H160
-            M230 420 H200 V380 H160 V330
-            M230 620 H200 V580 H160
-          "
-        />
-
-        <!-- Tertiary, finer traces -->
-        <path
-          class="circuit-tertiary"
-          d="
-            M215 100 H175 V80
-            M215 160 H185 V200
-            M215 300 H185 V280
-            M215 360 H175 V390
-            M215 500 H185 V540
-            M215 660 H175 V640
-          "
-        />
-
-        <!-- Nodes / connection points -->
-        <circle class="circuit-node" cx="250" cy="10"  r="3" />
-        <circle class="circuit-node" cx="210" cy="140" r="3" />
-        <circle class="circuit-node" cx="170" cy="230" r="3" />
-        <circle class="circuit-node" cx="140" cy="340" r="3" />
-        <circle class="circuit-node" cx="190" cy="460" r="3" />
-        <circle class="circuit-node" cx="220" cy="560" r="3" />
-        <circle class="circuit-node" cx="220" cy="720" r="3" />
-
-        <!-- Softer, background nodes -->
-        <circle class="circuit-node-soft" cx="200" cy="90"  r="2.5" />
-        <circle class="circuit-node-soft" cx="180" cy="180" r="2.5" />
-        <circle class="circuit-node-soft" cx="200" cy="280" r="2.5" />
-        <circle class="circuit-node-soft" cx="180" cy="360" r="2.5" />
-        <circle class="circuit-node-soft" cx="200" cy="520" r="2.5" />
-        <circle class="circuit-node-soft" cx="180" cy="600" r="2.5" />
-      </g>
-    </svg>
-  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
