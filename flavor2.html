@@ -282,30 +282,43 @@
       flex-wrap: wrap;
     }
 
-    /* AMBIENT SIDE CIRCUIT PANELS – overlay on top, non-blocking */
-    .ambient-left,
-    .ambient-right {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      width: 220px;         /* how far the circuitry creeps in */
-      pointer-events: none; /* don’t block clicks */
-      z-index: 10;          /* above content */
-    }
 
-    .ambient-left { left: 0; }
+    /* AMBIENT SIDE CIRCUIT PANELS – subtle background circuitry */
+.ambient-left,
+.ambient-right {
+  position: absolute;      /* scrolls with the page */
+  top: 0;
+  bottom: 0;
+  width: 220px;            /* how far the circuitry creeps in */
+  pointer-events: none;    /* don’t block clicks */
+  z-index: 0;              /* behind main content */
+}
 
-    .ambient-right {
-      right: 0;
-      transform: scaleX(-1); /* mirror */
-    }
+.ambient-left {
+  left: 0;
+}
 
-    .circuit-svg {
-      display: block;
-      width: 100%;
-      height: 100%;
-      opacity: 0.35;        /* tweak for stronger/weaker */
-    }
+.ambient-right {
+  right: 0;
+  transform: scaleX(-1);   /* mirror */
+}
+
+.circuit-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35;           /* tweak for stronger/weaker */
+}
+
+/* Ensure main content sits above the circuitry */
+header,
+section,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+    
 
     .circuit-main {
       stroke: var(--steel-blue);
