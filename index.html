@@ -50,20 +50,14 @@
     .logo-row { display: flex; align-items: center; gap: 0.75rem; }
 
     .logo-mark {
-      width: 30px; height: 30px; border-radius: 50%;
-      background: radial-gradient(circle at 20% 20%, #FDF7ED 0, #FDF7ED 24%, var(--bright-bronze) 25%, var(--dark-iron) 70%);
-      border: 1px solid var(--border-soft);
-    }
-
-    .logo-letter {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      background: var(--dark-iron);
-      border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: linear-gradient(145deg, var(--bright-bronze), var(--dark-iron));
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.35) inset,
+    0 4px 10px rgba(0, 0, 0, 0.18);
     }
 
     .logo-text-main {
@@ -326,7 +320,7 @@
 
 <header class="top-bar">
   <div class="logo-row">
-    <div class="logo-mark logo-letter">D</div>
+    <div class="logo-mark"></div>
     <div>
       <div class="logo-text-main">Daedalus Systems</div>
       <div class="logo-text-sub">Hand-built systems for real estate</div>
