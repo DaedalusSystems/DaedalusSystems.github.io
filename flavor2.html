@@ -28,19 +28,10 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-light);
       color: var(--text-dark);
+      position: relative;
       overflow-x: hidden;
-
-      /* Base background */
-      background-color: var(--bg-light);
-
-      /* Two copies of the same image: left and right */
-      background-image:
-        url("circuits-side.png"),
-        url("circuits-side.png");
-      background-repeat: repeat-y, repeat-y;
-      background-position: left top, right top;
-      background-size: 260px auto, 260px auto;
     }
 
     a { text-decoration: none; color: inherit; }
@@ -94,21 +85,14 @@
 
     /* HERO */
     .hero-stripe {
-      padding: 3.4rem 1.4rem 3.2rem;
-    }
-
-    .hero-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
       background:
         linear-gradient(135deg, rgba(80,113,139,0.18), rgba(80,36,30,0.2)),
         var(--bg-dark);
       color: var(--text-light);
-      border-radius: 24px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-      padding: 2.4rem 2.1rem 2.3rem;
+      padding: 3.4rem 1.4rem 3.2rem;
     }
+
+    .hero-inner { max-width: 860px; margin: 0 auto; text-align: center; }
 
     .hero-eyebrow {
       font-size: 0.8rem;
@@ -129,7 +113,7 @@
     .hero-body {
       font-size: 1rem;
       max-width: 42rem;
-      margin: 0.9rem auto 1.7rem;
+      margin: 0 auto 1.7rem;
       color: rgba(250,245,238,0.9);
     }
 
@@ -175,7 +159,7 @@
     /* WHO IT'S FOR */
     .stripe-mid {
       padding: 3rem 1.4rem;
-      /* no background here so body + circuits show through */
+      background: var(--bg-light);
       border-top: 1px solid var(--border-soft);
       border-bottom: 1px solid var(--border-soft);
     }
@@ -297,14 +281,6 @@
       justify-content: space-between;
       flex-wrap: wrap;
     }
-
-    /* Hide circuits on mobile */
-    @media (max-width: 900px) {
-      body {
-        background-image: none;
-      }
-    }
-
   </style>
 </head>
 
