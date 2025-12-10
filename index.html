@@ -60,6 +60,24 @@
     0 4px 10px rgba(0, 0, 0, 0.18);
     }
 
+    .logo-mark::after {
+    content: "";
+    position: absolute;
+    inset: 6px 5px auto 5px;
+    height: 2px;
+
+    background: linear-gradient(
+    90deg,
+    transparent,
+    var(--steel-blue),
+    transparent
+    );
+
+    transform: rotate(-18deg);
+    opacity: 0.7;
+    border-radius: 2px;
+    }
+
     .logo-text-main {
       font-size: 0.9rem; letter-spacing: 0.18em; text-transform: uppercase;
       font-weight: 650; color: var(--dark-iron);
