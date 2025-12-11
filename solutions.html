@@ -35,7 +35,7 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* HEADER (copied from index) */
+    /* HEADER (same pattern as index) */
     .top-bar {
       max-width: 1120px;
       margin: 0 auto;
@@ -173,10 +173,10 @@
       max-width: 34rem;
     }
 
-    /* HERO – DARK FRAME, SIMPLE LAYOUT */
+    /* HERO – softened to match index */
     .hero-stripe {
       background:
-        linear-gradient(135deg, rgba(80,113,139,0.5), rgba(80,36,30,0.55)),
+        linear-gradient(135deg, rgba(80,113,139,0.18), rgba(80,36,30,0.2)),
         var(--bg-dark);
       color: var(--text-light);
       padding: 2.6rem 1.4rem 2.4rem;
@@ -193,12 +193,12 @@
       background:
         linear-gradient(
           90deg,
-          rgba(22, 12, 12, 0.4) 0%,
-          rgba(22, 12, 12, 0.16) 18%,
-          transparent 40%,
-          transparent 60%,
-          rgba(22, 12, 12, 0.16) 82%,
-          rgba(22, 12, 12, 0.4) 100%
+          rgba(44, 28, 28, 0.35) 0%,
+          rgba(44, 28, 28, 0.12) 12%,
+          transparent 28%,
+          transparent 72%,
+          rgba(44, 28, 28, 0.12) 88%,
+          rgba(44, 28, 28, 0.35) 100%
         );
     }
 
@@ -300,44 +300,7 @@
       font-weight: 550;
     }
 
-    /* QUICK SUMMARY – 3 NARROW COLUMNS (ONLY ONCE) */
-    .summary-strip {
-      background: var(--bg-mid);
-      border-bottom: 1px solid var(--border-soft);
-    }
-
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.2rem;
-      font-size: 0.85rem;
-    }
-
-    .summary-item {
-      padding-right: 0.6rem;
-    }
-
-    .summary-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .summary-title {
-      font-size: 0.96rem;
-      font-weight: 550;
-      color: var(--dark-iron);
-      margin-bottom: 0.25rem;
-    }
-
-    .summary-body {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    /* WHAT WE AUTOMATE – VERTICAL TABLE STYLE */
+    /* WHAT WE AUTOMATE – vertical "table" */
     .automation-section .section-body {
       max-width: 40rem;
     }
@@ -387,7 +350,7 @@
       margin-bottom: 0.18rem;
     }
 
-    /* HOW WE FIT AROUND YOUR WEEK – TWO COLUMN TEXT */
+    /* HOW TALOS FITS AROUND YOUR WEEK */
     .fit-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
@@ -416,7 +379,7 @@
       margin-bottom: 0.2rem;
     }
 
-    /* PROCESS – LINEAR 3-STEP TIMELINE */
+    /* PROCESS – linear steps */
     .process-section {
       background: var(--bg-mid);
       border-top: 1px solid var(--border-soft);
@@ -476,7 +439,7 @@
       color: var(--text-muted);
     }
 
-    /* OPTIONAL IMAGE / DIAGRAM PLACEHOLDER */
+    /* OPTIONAL DIAGRAM PLACEHOLDER */
     .diagram-section {
       padding-top: 2.4rem;
     }
@@ -504,7 +467,7 @@
       margin-bottom: 0.3rem;
     }
 
-    /* FINAL CTA – DARK FOOTER BAND */
+    /* FINAL CTA */
     .stripe-final {
       background: var(--bg-dark);
       color: var(--text-light);
@@ -576,7 +539,7 @@
       background: rgba(250,245,238,0.06);
     }
 
-    /* FOOTER (copied) */
+    /* FOOTER */
     .footer {
       max-width: 1120px;
       margin: 0 auto;
@@ -591,10 +554,6 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .summary-grid {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -652,7 +611,7 @@
 </header>
 
 <main>
-  <!-- HERO: What this page is for -->
+  <!-- HERO -->
   <section class="hero-stripe">
     <div class="hero-inner">
       <div class="hero-main">
@@ -661,22 +620,22 @@
           How Talos carries the <span>quiet work</span> between your tools.
         </h1>
         <p class="hero-body">
-          The Overview page speaks to why this workshop exists. Here, we stay practical.
-          This is where Talos fits into a real agent’s week, and which parts of the work it quietly takes on.
+          Overview explains why this workshop exists. Here, we stay practical: which parts of your week Talos takes on,
+          and how it fits around the work only you can do.
         </p>
 
         <ul class="hero-list">
           <li>
             <div class="hero-dot"></div>
-            <div>Clarify which parts of your workflow Talos can safely automate, and which are always human.</div>
+            <div>Clarifies what Talos automates and what remains fully in your hands.</div>
           </li>
           <li>
             <div class="hero-dot"></div>
-            <div>Show how your forms, inbox, calendar, and CRM begin to behave like one system instead of four.</div>
+            <div>Shows how forms, inbox, calendar, and CRM begin to behave like one system.</div>
           </li>
           <li>
             <div class="hero-dot"></div>
-            <div>Give a simple picture of what changes first if we decide to work together.</div>
+            <div>Outlines what would likely change first if we decide to work together.</div>
           </li>
         </ul>
       </div>
@@ -688,59 +647,30 @@
           <span>Solo agents · Small teams</span>
         </div>
         <div class="hero-side-row">
-          <span>What it changes</span>
+          <span>What changes</span>
           <span>Intake · Follow-up · Light ops</span>
         </div>
         <div class="hero-side-row">
           <span>What stays yours</span>
-          <span>Conversations · Advice · Strategy</span>
+          <span>Conversations · Advice</span>
         </div>
         <p class="hero-side-note">
-          Talos is not another platform to log into. It sits between tools you already trust, with language and timing
-          tuned to how you prefer to work.
+          Talos is not another platform to log into. It runs quietly between tools you already trust, with language and
+          timing tuned to how you prefer to work.
         </p>
       </aside>
     </div>
   </section>
 
-  <!-- QUICK SUMMARY STRIP -->
-  <section class="section summary-strip">
-    <div class="section-inner summary-grid">
-      <div class="summary-item">
-        <div class="summary-label">Scope</div>
-        <div class="summary-title">Workflow, not software</div>
-        <p class="summary-body">
-          We don’t replace your CRM or website. We repair the handoffs and gaps around them so leads stop slipping through.
-        </p>
-      </div>
-
-      <div class="summary-item">
-        <div class="summary-label">Starting point</div>
-        <div class="summary-title">One clear improvement</div>
-        <p class="summary-body">
-          Most first builds focus on new inquiries and first responses. Once that feels steady, we expand carefully.
-        </p>
-      </div>
-
-      <div class="summary-item">
-        <div class="summary-label">Ongoing</div>
-        <div class="summary-title">Quiet refinement</div>
-        <p class="summary-body">
-          As leads move through, we tune timing, tone, and routing. No big relaunches, just small, steady adjustments.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT WE ACTUALLY AUTOMATE -->
+  <!-- WHAT WE AUTOMATE -->
   <section class="section automation-section">
     <div class="section-inner">
       <div class="section-header">
         <div class="section-label">What Talos handles</div>
-        <h2 class="section-title">The specific work that moves quietly in the background</h2>
+        <h2 class="section-title">The specific work that moves in the background</h2>
         <p class="section-body">
-          Talos focuses on work that is repeatable, predictable, and easier for a system to manage than a tired agent
-          at the end of a long day. You stay in charge of judgment calls and real conversations.
+          Talos focuses on tasks that are repeatable and predictable. You stay in charge of judgment calls and real
+          conversations; Talos manages the plumbing around them.
         </p>
       </div>
 
@@ -748,13 +678,13 @@
         <div class="automation-row">
           <div>
             <div class="automation-label">Lead intake</div>
-            <div class="automation-note">New names becoming real, organized records.</div>
+            <div class="automation-note">New names becoming organized records.</div>
           </div>
           <div>
             <ul class="automation-list">
-              <li>Website and portal inquiries pushed into your CRM with basic source and tags.</li>
-              <li>Simple checks to prevent obvious duplicates from cluttering your database.</li>
-              <li>Clear fields for how they found you and what they’re hoping to do.</li>
+              <li>Website and portal inquiries pushed into your CRM with source and basic tags.</li>
+              <li>Simple checks to prevent obvious duplicate records.</li>
+              <li>Clear fields for how they found you and what they hope to do.</li>
             </ul>
           </div>
         </div>
@@ -766,8 +696,8 @@
           </div>
           <div>
             <ul class="automation-list">
-              <li>Short, human messages that acknowledge the inquiry and set an expectation for next steps.</li>
-              <li>Simple branching: immediate response vs. “after hours” pacing when you prefer slower evenings.</li>
+              <li>Short messages acknowledging the inquiry and setting expectations for next steps.</li>
+              <li>Different pacing for daytime vs. after-hours inquiries, if you prefer.</li>
               <li>Automatic pause whenever you’ve already replied yourself.</li>
             </ul>
           </div>
@@ -780,8 +710,8 @@
           </div>
           <div>
             <ul class="automation-list">
-              <li>Gentle check-ins for “not yet” buyers and sellers over days, weeks, or months.</li>
-              <li>Daily lists in your CRM that highlight who actually needs attention today.</li>
+              <li>Gentle check-ins for “not yet” buyers and sellers over days or months.</li>
+              <li>Daily lists in your CRM that highlight who actually needs attention.</li>
               <li>Automatic removal from sequences when a real conversation opens up.</li>
             </ul>
           </div>
@@ -811,8 +741,8 @@
         <div class="section-label">How it feels in practice</div>
         <h2 class="section-title">Where the system steps in, and where it steps back</h2>
         <p class="section-body">
-          The goal is not to automate your whole business. The goal is to remove the pieces that pull you out of real
-          work with people.
+          The goal is not to automate your whole business. The goal is to remove the pieces that pull you away from
+          real work with people.
         </p>
       </div>
 
@@ -820,11 +750,11 @@
         <div>
           <div class="fit-block-title">Work Talos is well suited for</div>
           <p class="fit-block-body">
-            Simple, repeatable tasks that follow a clear pattern and don’t require nuance from call to call.
+            Simple, repeatable tasks that follow a clear pattern from day to day.
           </p>
           <ul class="fit-list">
             <li>Catching and logging every new inquiry, even during showings.</li>
-            <li>Sending a short “I saw this” message when leads first reach out.</li>
+            <li>Sending a brief “I saw this” message when leads first reach out.</li>
             <li>Light check-ins for long-term prospects with no urgency.</li>
             <li>Cleaning up obvious data issues in the background.</li>
           </ul>
@@ -853,8 +783,8 @@
         <div class="section-label">Process</div>
         <h2 class="section-title">From scattered tools to a steady first build</h2>
         <p class="section-body">
-          A “solution” here is not a pre-built template. It’s a small, intentional set of automations tuned to your
-          current tools and your way of working.
+          A “solution” here is a small, intentional set of automations tuned to your current tools and your way of
+          working — not a pre-built template.
         </p>
       </div>
 
@@ -864,7 +794,7 @@
             <div class="process-badge">1</div>
             <div class="process-title">Map your current week</div>
           </div>
-          <div class="process-meta">One short call, a few screenshots, no homework.</div>
+          <div class="process-meta">One short call, a few screenshots.</div>
           <p class="process-body">
             We walk through how leads arrive today, where you spend manual effort, and where opportunities are lost or
             delayed. The outcome is a simple sketch of your tools and the biggest leaks.
@@ -888,7 +818,7 @@
             <div class="process-badge">3</div>
             <div class="process-title">Run, observe, refine</div>
           </div>
-          <div class="process-meta">Adjustments over weeks, not one big launch.</div>
+          <div class="process-meta">Adjustments over weeks, not one launch.</div>
           <p class="process-body">
             Once real leads run through the new flow, we tune pacing, adjust messages, and decide together whether to
             extend Talos into follow-up or operations next.
@@ -905,7 +835,7 @@
         <div class="section-label">Optional visual</div>
         <h2 class="section-title">A simple map of where Talos sits</h2>
         <p class="section-body">
-          If you choose to, this is a good place for a single diagram that shows your tools and where Talos lives
+          If you choose to, this is a good place for one quiet diagram that shows your tools and where Talos lives
           between them.
         </p>
       </div>
@@ -913,7 +843,7 @@
       <div class="diagram-block">
         <div class="diagram-title">Suggested graphic idea</div>
         <p>
-          A calm, minimal diagram with:
+          A minimal diagram with:
         </p>
         <ul class="fit-list" style="margin-top: 0.4rem;">
           <li>Lead sources on the left (website, portals, referrals).</li>
@@ -921,8 +851,7 @@
           <li>Your CRM, inbox, and calendar on the right in steel blue and clay.</li>
         </ul>
         <p style="margin-top: 0.6rem;">
-          Style note: keep it diagram-like and understated. No fake dashboards, no heavy gradients — just a clear
-          picture of how information moves.
+          Keep it diagram-like and understated — no fake dashboards, just a clear picture of how information moves.
         </p>
       </div>
     </div>
