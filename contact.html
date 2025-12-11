@@ -37,7 +37,26 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* HEADER */
+    /* HEADER WRAP – full-width trim */
+    .header-wrap {
+      width: 100%;
+      background: var(--bg-light);
+      position: relative;
+      border-bottom: 4px solid var(--dark-iron); /* main dark trim */
+    }
+
+    /* bronze accent line, full-width */
+    .header-wrap::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px; /* just below the dark trim */
+      height: 2px;
+      background: var(--bright-bronze);
+    }
+
+    /* HEADER INNER BAR */
     .top-bar {
       max-width: 1120px;
       margin: 0 auto;
@@ -70,24 +89,6 @@
       font-weight: 650;
       color: var(--dark-iron);
     }
-
-    .header-wrap {
-  width: 100%;
-  background: var(--bg-light);
-  position: relative;
-  border-bottom: 4px solid var(--dark-iron); /* main trim */
-}
-
-/* bronze accent line, full-width */
-.header-wrap::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px; /* sits just below the dark trim */
-  height: 2px;
-  background: var(--bright-bronze);
-}
 
     .logo-text-sub { font-size: 0.75rem; color: var(--text-muted); }
 
@@ -146,8 +147,6 @@
       background: rgba(80,113,139,0.08);
     }
 
-    
-
     /* Menu toggle (mobile) */
     .menu-toggle {
       display: none;
@@ -203,10 +202,6 @@
 
     .top-bar.is-open .menu-icon span {
       opacity: 0;
-    }
-
-    .top-bar {
-      border-bottom: 3px solid var(--dark-iron);
     }
 
     /* CONTACT LAYOUT */
@@ -528,37 +523,37 @@
 
 <header class="header-wrap">
   <div class="top-bar">
-  <div class="logo-row">
-    <div class="logo-mark"></div>
-    <div>
-      <div class="logo-text-main">Daedalus Systems</div>
-      <div class="logo-text-sub">Hand-built systems for real estate</div>
+    <div class="logo-row">
+      <div class="logo-mark"></div>
+      <div>
+        <div class="logo-text-main">Daedalus Systems</div>
+        <div class="logo-text-sub">Hand-built systems for real estate</div>
+      </div>
     </div>
-  </div>
 
-  <nav class="nav-links" id="primary-nav">
-    <a href="index.html" class="nav-link">Overview</a>
-    <a href="solutions.html" class="nav-link">Solutions</a>
-    <a href="packages.html" class="nav-link">Packages</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="demo.html" class="nav-link">Demo</a>
-    <a href="contact.html" class="nav-link is-active">Contact</a>
-  </nav>
+    <nav class="nav-links" id="primary-nav">
+      <a href="index.html" class="nav-link">Overview</a>
+      <a href="solutions.html" class="nav-link">Solutions</a>
+      <a href="packages.html" class="nav-link">Packages</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="demo.html" class="nav-link">Demo</a>
+      <a href="contact.html" class="nav-link is-active">Contact</a>
+    </nav>
 
-  <button class="top-cta">Begin a conversation</button>
+    <button class="top-cta">Begin a conversation</button>
 
-  <button
-    class="menu-toggle"
-    type="button"
-    aria-expanded="false"
-    aria-controls="primary-nav"
-    aria-label="Toggle navigation"
-  >
-    Menu
-    <span class="menu-icon">
-      <span></span>
-    </span>
-  </button>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Toggle navigation"
+    >
+      Menu
+      <span class="menu-icon">
+        <span></span>
+      </span>
+    </button>
   </div>
 </header>
 
