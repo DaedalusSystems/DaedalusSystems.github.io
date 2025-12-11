@@ -530,10 +530,32 @@
       color: var(--text-muted);
     }
 
+    /* UPKEEP NOTE */
+
+    .upkeep-note {
+      margin-top: 2.4rem;
+      max-width: 44rem;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      background: rgba(248, 241, 231, 0.8);
+      border-radius: 12px;
+      border: 1px solid rgba(214, 198, 178, 0.9);
+      padding: 0.9rem 1rem;
+      box-shadow: 0 8px 20px rgba(50, 33, 35, 0.08);
+    }
+
+    .upkeep-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dark-iron);
+      margin-bottom: 0.25rem;
+    }
+
     /* ADD-ONS BAND */
 
     .add-ons {
-      margin-top: 3rem;
+      margin-top: 2.4rem;
       padding: 1.75rem 1.5rem;
       border-radius: 18px;
       border: 1px dashed rgba(198, 177, 153, 0.9);
@@ -547,8 +569,8 @@
     .add-ons > div:first-child {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;  /* back toward the top */
-      margin-top: 0.25rem;          /* tiny gentle nudge down */
+      justify-content: flex-start; /* back toward top */
+      margin-top: 0.25rem;        /* tiny nudge down */
     }
 
     .add-ons-heading {
@@ -629,7 +651,7 @@
 
     .final-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
 
-    /* FOOTER (matches Overview but updated line) */
+    /* FOOTER */
     .footer {
       max-width: 1120px;
       margin: 0 auto;
@@ -832,7 +854,7 @@
           <span>$300–$500</span> one-time build
         </div>
         <div class="price-note">
-          Optional ongoing support: <strong>$40–$75</strong> per month.
+          Ongoing care plan available: <strong>$40–$75</strong> per month (month-to-month).
         </div>
 
         <ul class="package-features">
@@ -842,11 +864,11 @@
           <li class="feature-item">Simple linear follow-up (email + SMS)</li>
           <li class="feature-item">Calendar and appointment flow setup</li>
           <li class="feature-item">Light tone calibration for key messages</li>
-          <li class="feature-item">Monthly check-in with minor adjustments</li>
+          <li class="feature-item">Monthly check-in with minor adjustments (when care plan is active)</li>
         </ul>
 
         <p class="package-footnote">
-          Best for agents who want the basics working smoothly without a full rebuild.
+          Best for agents who want the basics working smoothly and are comfortable requesting tune-ups as things change.
         </p>
       </article>
 
@@ -865,7 +887,7 @@
           <span>$900–$1,400</span> one-time build
         </div>
         <div class="price-note">
-          Ongoing stewardship: <strong>$75–$150</strong> per month.
+          Includes 1 month of ongoing stewardship, then <strong>$75–$150</strong> per month (month-to-month).
         </div>
 
         <ul class="package-features">
@@ -875,7 +897,7 @@
           <li class="feature-item">Branching, context-aware follow-up paths</li>
           <li class="feature-item">Small calibrated messaging library (email + SMS)</li>
           <li class="feature-item">Automated reminders and task flows</li>
-          <li class="feature-item">Bi-weekly refinement sessions</li>
+          <li class="feature-item">Bi-weekly refinement sessions during active stewardship</li>
         </ul>
 
         <p class="package-footnote">
@@ -898,7 +920,7 @@
           <span>$2,000–$3,500</span> one-time build
         </div>
         <div class="price-note">
-          Ongoing partnership: <strong>$200–$400</strong> per month.
+          Includes 3 months of ongoing partnership, then <strong>$200–$400</strong> per month (month-to-month).
         </div>
 
         <ul class="package-features">
@@ -916,6 +938,17 @@
         </p>
       </article>
     </div>
+
+    <!-- Upkeep Note -->
+    <section class="upkeep-note" aria-label="A note on upkeep">
+      <div class="upkeep-title">A note on upkeep</div>
+      <p>
+        Good systems aren’t fire-and-forget. As your tools and business evolve, the automations that connect them
+        need light maintenance. Each build is designed to be resilient, but changes to your CRM, lead sources,
+        website forms, or other platforms will occasionally require adjustments on our side. That’s what the ongoing
+        care plans are for — keeping a calm, dependable system aligned with a living, changing practice.
+      </p>
+    </section>
 
     <!-- Add-ons -->
     <section class="add-ons" aria-labelledby="add-ons-heading">
