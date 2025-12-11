@@ -71,6 +71,24 @@
       color: var(--dark-iron);
     }
 
+    .header-wrap {
+  width: 100%;
+  background: var(--bg-light);
+  position: relative;
+  border-bottom: 4px solid var(--dark-iron); /* main trim */
+}
+
+/* bronze accent line, full-width */
+.header-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px; /* sits just below the dark trim */
+  height: 2px;
+  background: var(--bright-bronze);
+}
+
     .logo-text-sub { font-size: 0.75rem; color: var(--text-muted); }
 
     .nav-links {
@@ -508,7 +526,8 @@
 
 <body>
 
-<header class="top-bar">
+<header class="header-wrap">
+  <div class="top-bar">
   <div class="logo-row">
     <div class="logo-mark"></div>
     <div>
@@ -540,6 +559,7 @@
       <span></span>
     </span>
   </button>
+  </div>
 </header>
 
 <main>
