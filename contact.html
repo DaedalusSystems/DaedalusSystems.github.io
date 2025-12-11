@@ -200,10 +200,10 @@
       margin: 0 auto;
     }
 
-   .contact-header {
-  max-width: 640px;
-  margin-bottom: 1.2rem;  /* or even 1rem */
-}
+    .contact-header {
+      max-width: 640px;
+      margin-bottom: 1.2rem;
+    }
 
     .contact-label {
       font-size: 0.78rem;
@@ -226,8 +226,13 @@
     }
 
     .contact-grid {
-  margin-top: 0.4rem; /* instead of default space */
-}
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 1.8rem;
+      align-items: flex-start;  /* both columns start at top */
+      margin-top: 0.6rem;
+    }
+
     /* LEFT COLUMN – EXPECTATIONS */
     .contact-notes {
       font-size: 0.9rem;
@@ -276,6 +281,7 @@
       border: 1px solid var(--border-soft);
       padding: 1.4rem 1.3rem 1.3rem;
       box-shadow: 0 14px 30px rgba(0,0,0,0.06);
+      align-self: flex-start; /* keep it at the top of the grid row */
     }
 
     .contact-card-title {
