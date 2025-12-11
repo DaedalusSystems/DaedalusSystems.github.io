@@ -433,25 +433,25 @@
     }
 
     /* FINAL STRIPE – OPTIONAL NOTE */
-    .stripe-final {
-      background: var(--bg-mid);
-      color: var(--text-dark);
-      padding: 1.8rem 1.4rem 1.9rem;
-      border-top: 1px solid var(--border-soft);
-    }
+.stripe-final {
+  background: var(--dark-iron);       /* dark bronze-style band */
+  color: var(--text-light);           /* light text on dark */
+  padding: 1.8rem 1.4rem 1.9rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.35);
+}
 
-    .stripe-final-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
+.stripe-final-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 0.86rem;
+  color: var(--text-light);           /* ensure inner text stays light */
+  line-height: 1.6;
+}
 
-    .stripe-final-strong {
-      font-weight: 550;
-      color: var(--dark-iron);
-    }
+.stripe-final-strong {
+  font-weight: 550;
+  color: var(--bright-bronze);        /* “Not urgent?” in bronze accent */
+}
 
     /* FOOTER */
     .footer {
