@@ -7,6 +7,7 @@
 
   <style>
     :root {
+      /* Brand palette */
       --steel-blue: #50718B;
       --dark-iron: #50241E;
       --bright-bronze: #CE7623;
@@ -14,768 +15,858 @@
       --purple-slate: #615576;
       --dusty-rose: #A8808E;
 
+      /* Surfaces */
       --bg-light: #F4EFE7;
       --bg-mid: #F1ECE4;
-      --bg-dark: #3C2A2B;
+      --bg-soft: #F7F2EB;
+      --bg-dark: #322123;
 
-      --text-light: #FAF5EE;
+      /* Text */
       --text-dark: #2A1D1E;
-      --text-muted: #8A7570;
-      --border-soft: #E3D9CC;
+      --text-muted: #7C6662;
+      --text-light: #FAF5EE;
+
+      /* Lines / cards */
+      --border-soft: #E2D7C7;
+      --card-shadow: 0 18px 40px rgba(50, 33, 35, 0.14);
+      --radius-lg: 18px;
+      --radius-xl: 22px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg-light);
       color: var(--text-dark);
-      position: relative;
-      overflow-x: hidden;
-      background: var(--bg-light);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    /* HEADER */
-    .top-bar {
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout shell */
+
+    .page-shell {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(
+        to bottom,
+        rgba(244, 239, 231, 0.92),
+        rgba(244, 239, 231, 0.90),
+        rgba(244, 239, 231, 0.85)
+      );
+      border-bottom: 1px solid rgba(208, 193, 173, 0.7);
+    }
+
+    .header-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 1.1rem 1.4rem;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
+      padding: 0.9rem 1.25rem;
+      display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 1rem;
     }
 
-    .logo-row { display: flex; align-items: center; gap: 0.75rem; }
-
-    .logo-mark {
-      position: relative;
-      width: 30px;
-      height: 30px;
-      border-radius: 8px;
-      overflow: hidden;
-      background: linear-gradient(145deg, var(--bright-bronze), var(--dark-iron));
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.35) inset,
-        0 4px 10px rgba(0, 0, 0, 0.18);
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      white-space: nowrap;
     }
 
-    .logo-text-main {
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 40%;
+      background: radial-gradient(circle at 28% 20%, #FDF7ED 0, #F4EFE7 32%, #B28770 70%, #322123 100%);
+      box-shadow: 0 10px 25px rgba(50, 33, 35, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #FDF7ED;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-name {
       font-size: 0.9rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-weight: 650;
+      font-weight: 600;
       color: var(--dark-iron);
     }
 
-    .logo-text-sub { font-size: 0.75rem; color: var(--text-muted); }
+    .brand-tagline {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
 
-    .nav-links { display: flex; gap: 0.9rem; flex-wrap: wrap; font-size: 0.86rem; justify-self: end; }
+    nav.site-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
 
     .nav-link {
       position: relative;
+      padding: 0.25rem 0;
       color: var(--text-muted);
-      padding-bottom: 0.2rem;
-      transition: color 140ms ease;
-    }
-
-    .nav-link.is-active {
-      color: var(--steel-blue);
-      font-weight: 550;
+      transition: color 0.18s ease;
     }
 
     .nav-link::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: 0;
+      bottom: -0.25rem;
+      width: 0;
       height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--bright-bronze), var(--clay));
+      transition: width 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--dark-iron);
+    }
+
+    .nav-link:hover::after {
       width: 100%;
-      background: var(--steel-blue);
-      transform: scaleX(0);
-      transform-origin: center;
-      opacity: 0;
-      transition: transform 180ms ease-out, opacity 180ms ease-out;
     }
 
-    .nav-link:hover::after,
-    .nav-link.is-active::after {
-      transform: scaleX(1);
-      opacity: 1;
+    .nav-link.active {
+      color: var(--dark-iron);
+      font-weight: 600;
     }
 
-    .top-cta {
-      border-radius: 999px;
-      border: 1px solid var(--steel-blue);
-      padding: 0.45rem 1rem;
-      font-size: 0.85rem;
-      color: var(--steel-blue);
-      background: transparent;
-      cursor: pointer;
-      white-space: nowrap;
+    .nav-link.active::after {
+      width: 100%;
     }
 
-    .top-cta:hover {
-      background: rgba(80,113,139,0.08);
-    }
-
-    /* Menu toggle (mobile) */
-    .menu-toggle {
+    .header-cta {
       display: none;
-      border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      padding: 0.4rem 0.9rem;
-      font-size: 0.85rem;
-      background: #F8F3EB;
-      cursor: pointer;
-      white-space: nowrap;
-      align-items: center;
-      gap: 0.4rem;
     }
 
-    .menu-toggle:hover {
-      background: #F2E8DC;
+    main {
+      flex: 1;
     }
 
-    .menu-icon {
-      width: 14px;
-      height: 10px;
+    /* Hero */
+
+    .packages-hero {
       position: relative;
-    }
-
-    .menu-icon::before,
-    .menu-icon::after,
-    .menu-icon span {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 1.5px;
-      background: var(--dark-iron);
-      border-radius: 999px;
-      transform-origin: center;
-      transition: transform 160ms ease, opacity 160ms ease;
-    }
-
-    .menu-icon::before {
-      top: 0;
-    }
-
-    .menu-icon::after {
-      bottom: 0;
-    }
-
-    .menu-icon span {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .top-bar.is-open .menu-icon::before {
-      transform: translateY(4px) rotate(45deg);
-    }
-
-    .top-bar.is-open .menu-icon::after {
-      transform: translateY(-4px) rotate(-45deg);
-    }
-
-    .top-bar.is-open .menu-icon span {
-      opacity: 0;
-    }
-
-    /* HERO / INTRO */
-    .hero-stripe {
-      background:
-        linear-gradient(135deg, rgba(80,113,139,0.18), rgba(80,36,30,0.2)),
-        var(--bg-dark);
+      background: radial-gradient(circle at 0% 0%, rgba(206, 118, 35, 0.18), transparent 55%),
+                  radial-gradient(circle at 100% 10%, rgba(80, 113, 139, 0.22), transparent 55%),
+                  radial-gradient(circle at 50% 120%, rgba(97, 85, 118, 0.3), transparent 65%),
+                  var(--bg-dark);
       color: var(--text-light);
-      padding: 3.2rem 1.4rem 3rem;
-      position: relative;
+      padding: 3.5rem 1.25rem 3.75rem;
       overflow: hidden;
     }
 
-    .hero-stripe::before {
+    .packages-hero::before {
+      /* Soft vignette on edges */
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(
-          90deg,
-          rgba(44, 28, 28, 0.35) 0%,
-          rgba(44, 28, 28, 0.12) 12%,
-          transparent 28%,
-          transparent 72%,
-          rgba(44, 28, 28, 0.12) 88%,
-          rgba(44, 28, 28, 0.35) 100%
-        );
+        radial-gradient(circle at top, rgba(0, 0, 0, 0.28), transparent 60%),
+        radial-gradient(circle at bottom, rgba(0, 0, 0, 0.32), transparent 60%);
+      opacity: 0.55;
+      mix-blend-mode: multiply;
     }
 
-    .hero-inner {
-      max-width: 880px;
-      margin: 0 auto;
-      text-align: left;
+    .packages-hero-inner {
       position: relative;
-      z-index: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.5fr);
+      gap: 3rem;
+      align-items: center;
     }
 
     .hero-eyebrow {
-      font-size: 0.8rem;
-      letter-spacing: 0.16em;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(250,245,238,0.75);
-      margin-bottom: 0.6rem;
+      color: rgba(249, 242, 234, 0.8);
+      margin-bottom: 0.75rem;
     }
 
     .hero-title {
-      font-size: clamp(2rem, 3.6vw, 2.7rem);
-      line-height: 1.08;
-      margin-bottom: 0.9rem;
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      line-height: 1.1;
+      margin-bottom: 0.85rem;
     }
 
-    .hero-title span { color: var(--bright-bronze); }
-
-    .hero-body {
+    .hero-lede {
       font-size: 0.98rem;
-      max-width: 40rem;
-      margin-bottom: 1.4rem;
-      color: rgba(250,245,238,0.9);
+      max-width: 34rem;
+      color: rgba(247, 240, 231, 0.92);
+      margin-bottom: 1.3rem;
     }
 
-    .hero-note {
-      font-size: 0.82rem;
-      color: rgba(250,245,238,0.75);
+    .hero-meta {
+      font-size: 0.86rem;
+      color: rgba(245, 234, 221, 0.85);
     }
 
-    /* PACKAGES SECTION */
-    .stripe-packages {
-      padding: 3rem 1.4rem 3.3rem;
+    .hero-meta span {
+      opacity: 0.85;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: flex-end;
+    }
+
+    .hero-pill {
+      font-size: 0.78rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 231, 215, 0.26);
+      background: radial-gradient(circle at 10% 0%, rgba(244, 231, 215, 0.22), transparent 60%);
+      color: rgba(249, 242, 234, 0.9);
+      white-space: nowrap;
+    }
+
+    /* Stripe mid (main content background with light vignette) */
+
+    .stripe-mid {
+      position: relative;
       background:
-        radial-gradient(circle at 0 20%, rgba(80,36,30,0.06), transparent 60%),
-        radial-gradient(circle at 100% 80%, rgba(80,113,139,0.06), transparent 60%),
-        var(--bg-light);
-      border-top: 1px solid var(--border-soft);
+        radial-gradient(circle at 50% -20%, rgba(80, 113, 139, 0.12), transparent 65%),
+        radial-gradient(circle at 50% 120%, rgba(176, 135, 112, 0.13), transparent 65%),
+        var(--bg-soft);
+      padding: 3.25rem 1.25rem 3.5rem;
     }
 
-    .packages-inner {
+    .stripe-mid-inner {
       max-width: 1120px;
       margin: 0 auto;
     }
 
-    .packages-header {
-      max-width: 620px;
-      margin-bottom: 1.8rem;
+    /* Section titles */
+
+    .section-header {
+      max-width: 36rem;
+      margin-bottom: 2.25rem;
     }
 
-    .stripe-label {
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-
-    .stripe-title {
-      font-size: 1.4rem;
-      color: var(--dark-iron);
-      margin-bottom: 0.5rem;
-    }
-
-    .stripe-sub {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    .plan-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.15rem;
-      align-items: stretch;
-    }
-
-    .plan {
-      background: #F9F6F2;
-      border-radius: 16px;
-      border: 1px solid var(--border-soft);
-      padding: 1.3rem 1.2rem 1.2rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .plan--highlight {
-      border-color: var(--steel-blue);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.08);
-    }
-
-    .plan-tag {
-      position: absolute;
-      top: 0.95rem;
-      right: 1.2rem;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      padding: 0.16rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(80,113,139,0.35);
-      background: rgba(80,113,139,0.06);
-      color: var(--steel-blue);
-    }
-
-    .plan-header {
-      margin-bottom: 0.9rem;
-    }
-
-    .plan-name {
-      font-size: 1.02rem;
-      font-weight: 600;
-      color: var(--dark-iron);
-      margin-bottom: 0.2rem;
-    }
-
-    .plan-for {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .plan-meta {
+    .section-kicker {
       font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.7rem;
-    }
-
-    .plan-includes-label {
-      font-size: 0.8rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .plan-inherits {
-      font-size: 0.82rem;
       color: var(--text-muted);
       margin-bottom: 0.6rem;
     }
 
-    .feature-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.35rem;
+      color: var(--dark-iron);
+    }
+
+    .section-subtitle {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+    }
+
+    /* Packages grid */
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .package-card {
+      position: relative;
+      background: linear-gradient(160deg, #FDF7EE 0%, #F3ECE3 45%, #F1E7DC 100%);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(214, 198, 178, 0.9);
+      box-shadow: var(--card-shadow);
+      padding: 1.75rem 1.6rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .package-card--middle {
+      transform: translateY(-6px);
+      border-color: rgba(206, 118, 35, 0.85);
+      box-shadow: 0 20px 45px rgba(50, 33, 35, 0.22);
+    }
+
+    .package-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+    }
+
+    .package-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--dark-iron);
+    }
+
+    .package-tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(206, 118, 35, 0.4);
+      color: var(--bright-bronze);
+      background: rgba(206, 118, 35, 0.06);
+      white-space: nowrap;
+    }
+
+    .package-blurb {
       font-size: 0.9rem;
-      flex: 1;
+      color: var(--text-muted);
+    }
+
+    .package-price {
+      font-size: 0.9rem;
+      color: var(--dark-iron);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .package-price span {
+      font-weight: 600;
+    }
+
+    .price-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .package-features {
+      list-style: none;
+      margin-top: 0.6rem;
+      margin-bottom: 0.4rem;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.42rem;
+      font-size: 0.9rem;
     }
 
     .feature-item {
       position: relative;
-      padding-left: 1.3rem;
-      margin-bottom: 0.4rem;
-      line-height: 1.5;
+      padding-left: 1.35rem;
+      color: var(--text-dark);
     }
 
     .feature-item::before {
       content: "✓";
       position: absolute;
       left: 0;
-      top: 0.1rem;
-      font-size: 0.8rem;
+      top: 0.05rem;
+      font-size: 0.83rem;
       color: var(--bright-bronze);
     }
 
-    .plan-footnote {
+    .feature-item.feature-muted {
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+
+    .feature-item.feature-muted::before {
+      color: rgba(164, 128, 112, 0.9);
+    }
+
+    .package-footnote {
+      margin-top: auto;
       font-size: 0.78rem;
       color: var(--text-muted);
-      margin-top: 0.7rem;
     }
 
-    /* SECONDARY NOTES */
-    .stripe-notes {
-      padding: 2.2rem 1.4rem 2.6rem;
-      background: var(--bg-mid);
-      border-top: 1px solid var(--border-soft);
-    }
+    /* Add-ons */
 
-    .notes-inner {
-      max-width: 960px;
-      margin: 0 auto;
+    .add-ons {
+      margin-top: 3rem;
+      padding: 1.75rem 1.5rem;
+      border-radius: var(--radius-xl);
+      border: 1px dashed rgba(198, 177, 153, 0.9);
+      background: linear-gradient(135deg, #F9F4EC 0%, #F4EEE6 40%, #F7F2EB 100%);
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 1.8rem;
-      align-items: flex-start;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr);
+      gap: 1.75rem;
+      align-items: start;
     }
 
-    .notes-title {
-      font-size: 1.05rem;
-      font-weight: 550;
+    .add-ons-heading {
+      font-size: 1.02rem;
+      font-weight: 600;
       color: var(--dark-iron);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.25rem;
     }
 
-    .notes-body {
+    .add-ons-copy {
       font-size: 0.9rem;
       color: var(--text-muted);
-      line-height: 1.6;
     }
 
-    .notes-list {
-      font-size: 0.85rem;
+    .add-ons-list {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .add-on-item-title {
+      font-weight: 500;
+      color: var(--dark-iron);
+    }
+
+    .add-on-item-note {
+      font-size: 0.8rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      list-style: disc;
-      padding-left: 1.3rem;
-      margin-top: 0.4rem;
     }
 
-    /* FINAL CTA */
-    .stripe-final {
-      background: var(--bg-dark);
-      color: var(--text-light);
-      padding: 2.7rem 1.4rem 2.3rem;
-      border-top: 1px solid rgba(0,0,0,0.6);
+    /* Final CTA stripe */
+
+    .stripe-soft {
+      background: var(--bg-light);
+      padding: 2.75rem 1.25rem 3.25rem;
     }
 
-    .stripe-final-inner {
-      max-width: 900px;
+    .stripe-soft-inner {
+      max-width: 1120px;
       margin: 0 auto;
+    }
+
+    .final-cta {
+      border-radius: var(--radius-xl);
+      padding: 1.9rem 1.7rem;
+      background: radial-gradient(circle at 0% 0%, rgba(80, 113, 139, 0.18), transparent 60%),
+                  radial-gradient(circle at 100% 120%, rgba(206, 118, 35, 0.24), transparent 60%),
+                  #F5EEE4;
+      border: 1px solid rgba(196, 176, 154, 0.9);
       display: flex;
       flex-wrap: wrap;
-      gap: 1.6rem;
-      justify-content: space-between;
       align-items: center;
+      gap: 1.2rem 2.5rem;
+      justify-content: space-between;
     }
 
-    .final-text-main {
-      font-size: 1.08rem;
-      font-weight: 550;
-      margin-bottom: 0.2rem;
+    .final-cta-text {
+      max-width: 34rem;
     }
 
-    .final-text-sub {
-      font-size: 0.9rem;
-      color: rgba(250,245,238,0.82);
-      max-width: 28rem;
+    .final-cta-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: var(--dark-iron);
     }
 
-    .final-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+    .final-cta-body {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .final-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
 
     .btn {
-      border-radius: 999px;
-      padding: 0.65rem 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
       font-size: 0.9rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
       cursor: pointer;
-      border: none;
-      font-weight: 550;
-      transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+      background: none;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
     }
 
-    .btn:hover {
+    .btn-primary {
+      background: linear-gradient(135deg, #CE7623, #B28770);
+      color: #FDF7EF;
+      border-color: rgba(122, 73, 40, 0.3);
+      box-shadow: 0 14px 30px rgba(80, 36, 30, 0.3);
+    }
+
+    .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 18px 36px rgba(80, 36, 30, 0.38);
     }
-
-    .btn-primary { background: #FAF5EE; color: #321916; }
-    .btn-primary:hover { background: #F4E5CF; }
 
     .btn-ghost {
-      background: transparent;
-      color: #FAF5EE;
-      border: 1px solid rgba(255,255,255,0.6);
+      border-color: rgba(120, 100, 90, 0.4);
+      color: var(--dark-iron);
+      background: rgba(249, 243, 235, 0.65);
     }
 
     .btn-ghost:hover {
-      background: rgba(250,245,238,0.08);
+      background: rgba(244, 236, 226, 0.95);
+      transform: translateY(-1px);
     }
 
-    /* FOOTER */
-    .footer {
+    footer.site-footer {
+      border-top: 1px solid rgba(210, 194, 176, 0.9);
+      background: #F3EDE3;
+      padding: 1.6rem 1.25rem 1.8rem;
+      margin-top: auto;
+    }
+
+    .footer-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 1rem 1.4rem 1.4rem;
-      font-size: 0.78rem;
-      color: var(--text-muted);
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
-    /* MOBILE */
+    .footer-note-strong {
+      color: var(--dark-iron);
+      font-weight: 500;
+    }
+
+    /* Responsiveness */
+
     @media (max-width: 900px) {
-      .plan-grid {
-        grid-template-columns: 1fr;
+      .packages-hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.25rem;
+      }
+
+      .hero-pill-row {
+        justify-content: flex-start;
+      }
+
+      .packages-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .package-card--middle {
+        transform: none;
+      }
+
+      .add-ons {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
     @media (max-width: 720px) {
-      .top-bar {
-        grid-template-columns: auto auto;
-        align-items: center;
-        row-gap: 0.75rem;
+      .header-inner {
+        flex-wrap: wrap;
+        gap: 0.6rem 1rem;
       }
 
-      .logo-row {
-        justify-content: flex-start;
-      }
-
-      .menu-toggle {
-        display: inline-flex;
-        justify-self: end;
-      }
-
-      .nav-links,
-      .top-cta {
-        grid-column: 1 / -1;
+      nav.site-nav {
         width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        column-gap: 1rem;
+        row-gap: 0.35rem;
       }
 
-      .nav-links {
-        display: none;
-        flex-wrap: nowrap;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.4rem;
+      .packages-hero {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
       }
 
-      .top-cta {
-        display: none;
-        justify-content: center;
-        text-align: center;
+      .stripe-mid {
+        padding-top: 2.5rem;
+        padding-bottom: 2.8rem;
       }
 
-      .top-bar.is-open .nav-links {
-        display: flex;
-      }
-
-      .top-bar.is-open .top-cta {
-        display: inline-flex;
-      }
-
-      .notes-inner {
+      .packages-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+
+      .add-ons-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .final-cta {
+        padding: 1.6rem 1.35rem;
       }
     }
   </style>
 </head>
 
-<body>
+<body class="page-shell">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-lockup">
+        <div class="brand-mark">Ds</div>
+        <div class="brand-text">
+          <div class="brand-name">DAEDALUS SYSTEMS</div>
+          <div class="brand-tagline">Quietly crafted automation for real estate.</div>
+        </div>
+      </div>
 
-<header class="top-bar">
-  <div class="logo-row">
-    <div class="logo-mark"></div>
-    <div>
-      <div class="logo-text-main">Daedalus Systems</div>
-      <div class="logo-text-sub">Hand-built systems for real estate</div>
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Overview</a>
+        <a href="solutions.html" class="nav-link">Solutions</a>
+        <a href="packages.html" class="nav-link active">Packages</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="demo.html" class="nav-link">Demo</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <nav class="nav-links" id="primary-nav">
-    <a href="index.html" class="nav-link">Overview</a>
-    <a href="solutions.html" class="nav-link">Solutions</a>
-    <a href="packages.html" class="nav-link is-active">Packages</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="demo.html" class="nav-link">Demo</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-  </nav>
-
-  <button class="top-cta">Begin a conversation</button>
-
-  <button
-    class="menu-toggle"
-    type="button"
-    aria-expanded="false"
-    aria-controls="primary-nav"
-    aria-label="Toggle navigation"
-  >
-    Menu
-    <span class="menu-icon">
-      <span></span>
-    </span>
-  </button>
-</header>
-
-<!-- HERO / INTRO -->
-<section class="hero-stripe">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Three ways to work together</div>
-    <h1 class="hero-title">
-      Packages that build from a first steady system
-      <span>to a fully tuned workshop</span>.
-    </h1>
-    <p class="hero-body">
-      Each tier is built on the one before it. Starter stabilizes the essentials. Core System turns your tools into a dependable daily rhythm. Atelier adds space for deeper experimentation and ongoing refinement.
-    </p>
-    <p class="hero-note">
-      Engagements are quoted based on your tools, volume, and market. These outlines show scope and shape, not rigid bundles.
-    </p>
-  </div>
-</section>
-
-<!-- PACKAGES -->
-<section class="stripe-packages">
-  <div class="packages-inner">
-    <div class="packages-header">
-      <div class="stripe-label">Comparison</div>
-      <h2 class="stripe-title">Choose the level of system you want to live in</h2>
-      <p class="stripe-sub">
-        All packages respect your existing stack. No platform migrations, no surprise add-ons. Each step up simply carries more of the work for you.
-      </p>
-    </div>
-
-    <div class="plan-grid">
-      <!-- STARTER -->
-      <article class="plan">
-        <header class="plan-header">
-          <div class="plan-name">Starter</div>
-          <div class="plan-for">A first steady system for solo agents or very small teams.</div>
-        </header>
-        <div class="plan-meta">
-          A focused engagement that repairs the biggest leaks in intake and follow-up using the tools already in place.
+  <main>
+    <!-- Packages hero -->
+    <section class="packages-hero">
+      <div class="packages-hero-inner">
+        <div>
+          <div class="hero-eyebrow">Packages</div>
+          <h1 class="hero-title">Three ways to bring calm back into your workflow.</h1>
+          <p class="hero-lede">
+            Each package builds on the last, from repairing essentials to shaping a living system that supports your
+            day, your clients, and your way of working.
+          </p>
+          <p class="hero-meta">
+            <span>Built for solo agents and small teams who want dependable systems without switching platforms.</span>
+          </p>
         </div>
 
-        <div class="plan-includes-label">Includes</div>
-        <ul class="feature-list">
-          <li class="feature-item">Mapping of existing lead sources, basic workflows, and key bottlenecks.</li>
-          <li class="feature-item">Connection of 1–2 primary lead sources into your CRM (website, portal, or form).</li>
-          <li class="feature-item">Warm, on-brand first response templates reviewed and approved before launch.</li>
-          <li class="feature-item">Simple tagging structure for source and basic intent so leads are never “just in there.”</li>
-          <li class="feature-item">Daily or weekly summary of new leads so nothing disappears into the inbox.</li>
-        </ul>
+        <div class="hero-pill-row">
+          <span class="hero-pill">No CRM migration required</span>
+          <span class="hero-pill">Custom tone and pacing</span>
+          <span class="hero-pill">Ongoing refinement, not a one-off build</span>
+        </div>
+      </div>
+    </section>
 
-        <p class="plan-footnote">
-          Best when the current pain is “leads arrive, but the follow-up feels scattered or late.”
-        </p>
-      </article>
-
-      <!-- CORE SYSTEM -->
-      <article class="plan plan--highlight">
-        <span class="plan-tag">Most common</span>
-        <header class="plan-header">
-          <div class="plan-name">Core System</div>
-          <div class="plan-for">For agents and teams who want intake, follow-up, and operations aligned.</div>
+    <!-- Packages stripe -->
+    <section class="stripe-mid">
+      <div class="stripe-mid-inner">
+        <header class="section-header">
+          <div class="section-kicker">Comparison</div>
+          <h2 class="section-title">Choose the level of support that fits your season.</h2>
+          <p class="section-subtitle">
+            All work is built on the tools you already rely on. No new dashboards to babysit, no noisy “platform”
+            to learn — just quieter, more dependable systems.
+          </p>
         </header>
-        <div class="plan-meta">
-          Builds on Starter and turns your CRM into a true command center instead of a crowded list.
+
+        <div class="packages-grid">
+          <!-- Built Essentials -->
+          <article class="package-card">
+            <div class="package-label-row">
+              <h3 class="package-name">Built Essentials</h3>
+              <span class="package-tag">Steady starting point</span>
+            </div>
+            <p class="package-blurb">
+              A clean, dependable foundation. Core workflows repaired and organized so leads stop slipping through the gaps.
+            </p>
+
+            <div class="package-price">
+              <span>$300–$500</span> one-time build
+            </div>
+            <div class="price-note">
+              Optional ongoing support: <strong>$40–$75</strong> per month.
+            </div>
+
+            <ul class="package-features">
+              <li class="feature-item">Repair of intake from main lead channels</li>
+              <li class="feature-item">Unified routing into your existing CRM</li>
+              <li class="feature-item">Consistent tagging structure</li>
+              <li class="feature-item">Simple linear follow-up (email + SMS)</li>
+              <li class="feature-item">Calendar and appointment flow setup</li>
+              <li class="feature-item feature-muted">Light tone calibration for key messages</li>
+              <li class="feature-item feature-muted">Monthly check-in with minor adjustments</li>
+            </ul>
+
+            <p class="package-footnote">
+              Best for agents who want the basics working smoothly without a full rebuild.
+            </p>
+          </article>
+
+          <!-- Refined System -->
+          <article class="package-card package-card--middle">
+            <div class="package-label-row">
+              <h3 class="package-name">Refined System</h3>
+              <span class="package-tag">Most common choice</span>
+            </div>
+            <p class="package-blurb">
+              Your workflow, rebuilt with intention. Intake is unified, follow-up adapts to context, and your day
+              settles into a quieter, more reliable rhythm.
+            </p>
+
+            <div class="package-price">
+              <span>$900–$1,400</span> one-time build
+            </div>
+            <div class="price-note">
+              Ongoing stewardship: <strong>$75–$150</strong> per month.
+            </div>
+
+            <ul class="package-features">
+              <li class="feature-item">Everything in Built Essentials</li>
+              <li class="feature-item">Multi-source intake (website, portals, forms)</li>
+              <li class="feature-item">Smart routing by lead type and urgency</li>
+              <li class="feature-item">Branching, context-aware follow-up paths</li>
+              <li class="feature-item">Small calibrated messaging library (email + SMS)</li>
+              <li class="feature-item">Automated reminders and task flows</li>
+              <li class="feature-item">Bi-weekly refinement sessions</li>
+            </ul>
+
+            <p class="package-footnote">
+              For agents with steady volume who want a system that actively protects their time and relationships.
+            </p>
+          </article>
+
+          <!-- Crafted Partnership -->
+          <article class="package-card">
+            <div class="package-label-row">
+              <h3 class="package-name">Crafted Partnership</h3>
+              <span class="package-tag">High-touch collaboration</span>
+            </div>
+            <p class="package-blurb">
+              A living system that evolves with your business. Custom modules, deeper logic, and regular refinement cycles
+              to keep everything in sync with how you work.
+            </p>
+
+            <div class="package-price">
+              <span>$2,000–$3,500</span> one-time build
+            </div>
+            <div class="price-note">
+              Ongoing partnership: <strong>$200–$400</strong> per month.
+            </div>
+
+            <ul class="package-features">
+              <li class="feature-item">Everything in Refined System</li>
+              <li class="feature-item">Custom automation modules built around your style</li>
+              <li class="feature-item">High-touch integration across preferred tools</li>
+              <li class="feature-item">Advanced conditional logic and branching</li>
+              <li class="feature-item">Expanded calibrated messaging library</li>
+              <li class="feature-item">Priority access for support</li>
+              <li class="feature-item">Monthly audits and seasonal refinements</li>
+            </ul>
+
+            <p class="package-footnote">
+              Best for agents who see their systems as an ongoing asset, not a one-time project.
+            </p>
+          </article>
         </div>
 
-        <div class="plan-includes-label">Everything in Starter, plus</div>
-        <p class="plan-inherits">
-          Starter foundations are refined, then extended across more of your day-to-day work.
-        </p>
-        <ul class="feature-list">
-          <li class="feature-item">Additional lead sources connected (website forms, portals, open house signups, referrals).</li>
-          <li class="feature-item">Structured pipelines and stages that match how you actually sell, not generic defaults.</li>
-          <li class="feature-item">Light nurture sequences for “not yet” buyers and sellers, tuned to your tone and pacing.</li>
-          <li class="feature-item">Calendar alignment for consult calls and key follow-up blocks.</li>
-          <li class="feature-item">Ongoing adjustment window to tweak timing, wording, and routing as real leads move through.</li>
-        </ul>
+        <!-- Add-ons -->
+        <section class="add-ons" aria-labelledby="add-ons-heading">
+          <div>
+            <h3 id="add-ons-heading" class="add-ons-heading">Add-ons</h3>
+            <p class="add-ons-copy">
+              For agents who want to deepen specific parts of their workflow, these add-ons can be layered onto any package.
+              Each is scoped to stay focused, clear, and easy to maintain.
+            </p>
+          </div>
 
-        <p class="plan-footnote">
-          A fit when the goal is one calm, dependable system that supports a full book of business.
-        </p>
-      </article>
+          <ul class="add-ons-list">
+            <li>
+              <div class="add-on-item-title">Open house workflow</div>
+              <div class="add-on-item-note">
+                Organized sign-ins, clean routing, and warm follow-up after each event.
+                <br />Typical range: $150–$300.
+              </div>
+            </li>
+            <li>
+              <div class="add-on-item-title">Post-close follow-up</div>
+              <div class="add-on-item-note">
+                Gentle, long-tail check-ins over the next 12–18 months.
+                <br />Typical range: $150–$300.
+              </div>
+            </li>
+            <li>
+              <div class="add-on-item-title">Lead source troubleshooting</div>
+              <div class="add-on-item-note">
+                Fixes for broken handoffs from portals, forms, or marketing tools.
+                <br />Typical range: $100–$250.
+              </div>
+            </li>
+            <li>
+              <div class="add-on-item-title">Light CRM cleanup</div>
+              <div class="add-on-item-note">
+                Tag organization, duplicate guidance, and structure repair.
+                <br />Typical range: $150–$350.
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </section>
 
-      <!-- ATELIER PACKAGE -->
-      <article class="plan">
-        <header class="plan-header">
-          <div class="plan-name">Atelier Package</div>
-          <div class="plan-for">For agents treating their practice as a long-term, evolving workshop.</div>
-        </header>
-        <div class="plan-meta">
-          Builds on Core System with space for deeper experimentation, new flows, and regular collaborative refinement.
+    <!-- Final CTA -->
+    <section class="stripe-soft">
+      <div class="stripe-soft-inner">
+        <div class="final-cta">
+          <div class="final-cta-text">
+            <h3 class="final-cta-title">Not sure where to start?</h3>
+            <p class="final-cta-body">
+              Most agents begin with a short conversation. We’ll look at how leads arrive today, where they fall through
+              the cracks, and which package feels right for the season you’re in.
+            </p>
+          </div>
+          <div class="final-cta-actions">
+            <a href="contact.html" class="btn btn-primary">Start with a simple inquiry</a>
+            <a href="demo.html" class="btn btn-ghost">See a calm system in action</a>
+          </div>
         </div>
+      </div>
+    </section>
+  </main>
 
-        <div class="plan-includes-label">Everything in Core System, plus</div>
-        <p class="plan-inherits">
-          The system grows with you: new ideas can be tested without breaking what already works.
-        </p>
-        <ul class="feature-list">
-          <li class="feature-item">Additional custom flows, such as seller intake, post-close care, and referral tracking.</li>
-          <li class="feature-item">Deeper reporting on bottlenecks, response patterns, and where leads quietly stall.</li>
-          <li class="feature-item">Regular strategy sessions to decide what to adjust, simplify, or extend next.</li>
-          <li class="feature-item">Room for thoughtful experiments with new tools or channels, without starting from scratch.</li>
-          <li class="feature-item">Priority scheduling for changes when your market or volume shifts quickly.</li>
-        </ul>
-
-        <p class="plan-footnote">
-          Chosen by agents who want a long-term partner in the background, not just a one-time build.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- NOTES / EXPECTATIONS -->
-<section class="stripe-notes">
-  <div class="notes-inner">
-    <div>
-      <div class="notes-title">How scope and pricing are set</div>
-      <p class="notes-body">
-        Before any work begins, we map your tools, volume, and goals. From there, you receive a clear written outline of the proposed build, the package it belongs in, and the investment for that scope — no hidden tiers or surprise add-ons.
-      </p>
-    </div>
-
-    <div>
-      <div class="notes-title">What stays the same in every package</div>
-      <ul class="notes-list">
-        <li>Your existing tools remain the foundation wherever possible.</li>
-        <li>Language and timing are reviewed with you before going live.</li>
-        <li>Talos is tuned to support your relationships, not replace them.</li>
-        <li>You always know what the system is doing and why.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="stripe-final">
-  <div class="stripe-final-inner">
-    <div>
-      <div class="final-text-main">Not sure which package fits yet?</div>
-      <div class="final-text-sub">
-        A short conversation is usually enough to place you in the right tier and outline a first build that feels realistic for your current season.
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <span class="footer-note-strong">Daedalus Systems</span> — custom automation for solo agents and small teams.
+      </div>
+      <div>
+        Built to sit quietly behind your business, not in front of it.
       </div>
     </div>
-
-    <div class="final-actions">
-      <a href="contact.html">
-        <button class="btn btn-primary">Start with a simple inquiry</button>
-      </a>
-      <a href="demo.html">
-        <button class="btn btn-ghost">See the system in action</button>
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div>© <span id="year"></span> Daedalus Systems</div>
-  <div>Boulder, CO · Built as a one-person workshop</div>
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  // Mobile nav toggle
-  const topBar = document.querySelector('.top-bar');
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = topBar.classList.toggle('is-open');
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (topBar.classList.contains('is-open')) {
-          topBar.classList.remove('is-open');
-          menuToggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    });
-  }
-</script>
-
+  </footer>
 </body>
 </html>
