@@ -80,11 +80,8 @@
     }
 
     .logo-text-main {
-      font-size: 0.9rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 650;
-      color: var(--dark-iron);
+      font-size: 0.9rem; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 650; color: var(--dark-iron);
     }
 
     .logo-text-sub { font-size: 0.75rem; color: var(--text-muted); }
@@ -178,8 +175,14 @@
       transition: transform 160ms ease, opacity 160ms ease;
     }
 
-    .menu-icon::before { top: 0; }
-    .menu-icon::after { bottom: 0; }
+    .menu-icon::before {
+      top: 0;
+    }
+
+    .menu-icon::after {
+      bottom: 0;
+    }
+
     .menu-icon span {
       top: 50%;
       transform: translateY(-50%);
@@ -431,72 +434,41 @@
         );
     }
 
-    /* SIDE RAILS – dual-line crafted rails (iron + bronze) */
-    .hero-stripe,
-    .stripe-mid,
-    .stripe-soft,
-    .stripe-final {
-      position: relative;
-    }
-
-    .hero-stripe::after,
-    .stripe-mid::after,
-    .stripe-soft::after,
-    .stripe-final::after {
+    /* SIDE RAILS – thicker dual-line crafted rails (iron + bronze) */
+    body::before,
+    body::after {
       content: "";
-      position: absolute;
+      position: fixed;
       top: 0;
       bottom: 0;
-      left: 0;
-      right: 0;
+      width: 5px;
       pointer-events: none;
+      z-index: 2;
 
       background-image:
-        /* Left outer iron rail */
+        /* outer iron rail */
         linear-gradient(
           to bottom,
-          rgba(80,36,30,0),
-          rgba(80,36,30,0.40),
-          rgba(80,36,30,0)
+          rgba(80,36,30,0) 0%,
+          rgba(80,36,30,0.45) 5%,
+          rgba(80,36,30,0.45) 95%,
+          rgba(80,36,30,0) 100%
         ),
-        /* Left inner bronze rail */
+        /* inner bronze rail */
         linear-gradient(
           to bottom,
-          rgba(206,118,35,0),
-          rgba(206,118,35,0.45),
-          rgba(206,118,35,0)
-        ),
-        /* Right outer iron rail */
-        linear-gradient(
-          to bottom,
-          rgba(80,36,30,0),
-          rgba(80,36,30,0.40),
-          rgba(80,36,30,0)
-        ),
-        /* Right inner bronze rail */
-        linear-gradient(
-          to bottom,
-          rgba(206,118,35,0),
-          rgba(206,118,35,0.45),
-          rgba(206,118,35,0)
+          rgba(206,118,35,0) 0%,
+          rgba(206,118,35,0.6) 5%,
+          rgba(206,118,35,0.6) 95%,
+          rgba(206,118,35,0) 100%
         );
-
       background-repeat: no-repeat;
-
-      background-position:
-        5% 0,
-        calc(5% + 3px) 0,
-        95% 0,
-        calc(95% - 3px) 0;
-
-      background-size:
-        2px 100%,
-        1px 100%,
-        2px 100%,
-        1px 100%;
-
-      z-index: 0;
+      background-position: 0 0, 3px 0;
+      background-size: 3px 100%, 2px 100%;
     }
+
+    body::before { left: 5%; }
+    body::after  { right: 5%; }
 
     /* ===== MOBILE NAV TOGGLE ===== */
     @media (max-width: 720px) {
@@ -546,10 +518,8 @@
       }
 
       /* Hide rails on small screens */
-      .hero-stripe::after,
-      .stripe-mid::after,
-      .stripe-soft::after,
-      .stripe-final::after {
+      body::before,
+      body::after {
         display: none;
       }
     }
